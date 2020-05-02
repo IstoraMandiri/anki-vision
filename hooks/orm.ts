@@ -1,9 +1,7 @@
-import { createConnection, getRepository } from 'typeorm'
+import { createConnection } from 'typeorm'
 import { useState, useRef, useEffect } from 'react'
 import { getSavedFile, loadFile } from '../utils/file'
 import { Revlog, Cards, Col, Notes } from '../schema'
-import { colToCollectionInfo } from '../utils/transforms'
-import { getRevisions } from '../utils/queries'
 import Cache from '../utils/cache'
 
 export default function useOrm (): [OrmState, OrmActions] {
@@ -39,19 +37,8 @@ export default function useOrm (): [OrmState, OrmActions] {
     connect(await loadFile(e))
   }
 
-  async function getCollectionInfo (): Promise<CollectionInfo> {
-    const col = getRepository(Col)
-    return colToCollectionInfo(await col.findOne())
-  }
-
-  async function makeQuery (query): Promise<any> {
-    getRevisions(connection.current)
-  }
-
   const actions = {
-    handleFileSelect,
-    getCollectionInfo,
-    makeQuery
+    handleFileSelect
   }
 
   return [state, actions]

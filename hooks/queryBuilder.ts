@@ -1,17 +1,31 @@
 import { useState, useEffect } from 'react'
+import tick from '../utils/tick'
 import useOrm from './orm'
+import { getCollectionInfo, getRevisions } from '../utils/queries'
 
-export default function useQueryBuilder (): [any, QueryBuilderActions] {
-  const [{ ready }, { handleFileSelect, getCollectionInfo, makeQuery }] = useOrm()
-  const [options, setSetOptions] = useState({ ready: false })
-  const [query, setQuery] = useState({ filter: {}, sort: {} })
+const sampleQuery = {
+  filter: {
+    decks: { 1: true }
+  },
+  count: {
+    wrong: 'value'
+  },
+  period: 'year',
+  sort: {}
+}
+
+export default function useQueryBuilder (): [QueryBuilderState, QueryBuilderActions] {
+  const [{ ready }, { handleFileSelect }] = useOrm()
+  const [info, setInfo] = useState({ ready: false })
+  const [query, setQuery] = useState(sampleQuery)
+  const [result, setResult] = useState({ loading: false, ready: false } as Result)
 
   useEffect(() => {
     if (ready) {
       (async () => {
-        setSetOptions({
+        setInfo({
           ready: true,
-          ...await getCollectionInfo()
+          ...await initialize()
         })
       })()
     }
@@ -30,8 +44,15 @@ export default function useQueryBuilder (): [any, QueryBuilderActions] {
     })
   }
 
+  async function initialize (): Promise<CollectionInfo> {
+    return getCollectionInfo()
+  }
+
   async function runQuery () {
-    makeQuery(query)
+    setResult({ ...result, loading: true, ready: false })
+    await tick() // force it to re-render before blocking thread
+    const data = await getRevisions(query)
+    setResult({ loading: false, ready: true, data })
   }
 
   const actions = {
@@ -40,5 +61,5 @@ export default function useQueryBuilder (): [any, QueryBuilderActions] {
     runQuery
   }
 
-  return [{ query, options }, actions]
+  return [{ query, info, result }, actions]
 }

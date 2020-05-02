@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Cards } from '.'
 
 @Entity()
 export default class Notes {
@@ -48,4 +49,7 @@ export default class Notes {
   @Column({ name: 'data' })
   data: string
   // -- unused
+
+  @OneToMany(type => Cards, cards => cards.noteId)
+  revisions: Cards[]
 }

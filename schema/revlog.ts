@@ -1,10 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne } from 'typeorm'
+import { Cards } from '.'
 
 @Entity()
 export default class Revlog {
   @PrimaryGeneratedColumn({ name: 'id' })
   id: number
   // -- epoch-milliseconds timestamp of when you did the review
+
+  @ManyToOne(type => Cards, card => card.revisions)
+  @JoinColumn({ name: 'cid' })
+  card: Cards
 
   @Column({ name: 'cid' })
   cardId: number

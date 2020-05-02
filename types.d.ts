@@ -4,9 +4,14 @@ interface Filter {
 }
 
 interface CollectionInfo {
-  decks?: Filter[]
-  tags?: Filter[]
-  noteTypes?: Filter[]
+  firstRevision: number
+  lastRevision: number
+  notes: number
+  revisions: number
+  notes: number
+  decks: Filter[]
+  tags: Filter[]
+  noteTypes: Filter[]
 }
 
 interface OrmState {
@@ -15,11 +20,9 @@ interface OrmState {
 
 interface OrmActions {
   handleFileSelect: (f: any) => Promise<void>
-  getCollectionInfo: () => Promise<CollectionInfo>
-  makeQuery: (q: Query) => Promise<any>
 }
 
-interface QueryBuilderOptions extends CollectionInfo {
+interface QueryBuilderInfo extends Partial<CollectionInfo> {
   ready: boolean
 }
 
@@ -31,11 +34,17 @@ interface Query {
 interface QueryBuilderActions {
   handleFileSelect: (f: any) => Promise<void>
   updateQuery: ({ type: string, field: string, id: string, value: any }) => void
-  runQuery: () => Promise<void>
+  runQuery: () => void
+}
+
+interface Result {
+  ready: boolean;
+  loading: boolean;
+  data: any[];
 }
 
 interface QueryBuilderState {
   query: Query
-  options: QueryBuilderOptions
-  result: any
+  info: QueryBuilderInfo
+  result: Result
 }

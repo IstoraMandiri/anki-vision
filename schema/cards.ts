@@ -1,9 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm'
+import { Revlog, Notes } from '.'
 
 @Entity()
 export default class Cards {
   @PrimaryGeneratedColumn({ name: 'id' })
   id: number
+
+  @ManyToOne(type => Notes)
+  @JoinColumn({ name: 'nid' })
+  note: Notes
 
   @Column({ name: 'nid' })
   noteId: number
@@ -85,4 +90,7 @@ export default class Cards {
   @Column({ name: 'data' })
   data: string
   // -- currently unused
+
+  @OneToMany(type => Revlog, revlog => revlog.card)
+  revisions: Revlog[];
 }

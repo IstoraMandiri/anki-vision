@@ -1,16 +1,15 @@
-import { useSql } from '../hooks/sql'
 
-import Heatmap from './Heatmap'
 import Json from './Json'
+import useQueryBuilder from '../hooks/queryBuilder'
 
 const Dashboard = () => {
-  const [state, { load }] = useSql()
+  const [{ info, query, result }, { handleFileSelect, updateQuery, runQuery }] = useQueryBuilder()
   return (
     <>
       <div>
-        <Heatmap data={state} />
-        <input type="file" onChange={load} />
-        <Json data={(state || []).slice(0, 30)} />
+        <input type="file" onChange={handleFileSelect} />
+        <button onClick={() => runQuery()}>Go!</button>
+        <Json result={{ result, query, info }} />
       </div>
     </>
   )
