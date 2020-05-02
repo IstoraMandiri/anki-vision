@@ -1,9 +1,6 @@
-import { getRepository, Brackets } from 'typeorm'
+import { getRepository } from 'typeorm'
 import { Revlog, Cards, Col, Notes } from '../schema'
-import Counter from './counter'
 import applyFilters from './filters'
-
-const c = new Counter()
 
 const periods = {
   minute: '%Y-%m-%d-%H:%M',
@@ -88,13 +85,13 @@ export async function getRevisions (query: Query) {
 
   applyFilters(q, {})
 
-  q = q.limit(200)
+  q = q.limit(2)
   // SPECIFIC DECK
   // NOT SUSPENDED
   // .addSelect(time, period)
   // .groupBy(time)
   // .cache(true)
-  const res = await q.getRawMany()
+  const res = await q.getMany()
   // console.log(JSON.stringify(res, null, 2))
   return res
 }

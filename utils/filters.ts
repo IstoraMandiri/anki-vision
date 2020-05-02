@@ -1,3 +1,7 @@
+import { Brackets } from 'typeorm'
+import Counter from './counter'
+
+const c = new Counter() // hack to workaround TypeORM bug
 
 function splitFilters (items, { add, not }) {
   const res = { add: [], not: [] }
@@ -58,6 +62,7 @@ const ops = {
     })
   }
 }
+
 const filtersMap = {
   deck: {
     type: 'array', params: { to: 'card.deckId' }
