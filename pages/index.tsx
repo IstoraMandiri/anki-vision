@@ -1,13 +1,14 @@
 import 'reflect-metadata'
 
-import useOrm from '../hooks/orm'
 import Json from '../components/Json'
+import useQueryBuilder from '../hooks/queryBuilder'
 
 export default function Home () {
-  const [state, { handleFileSelect }] = useOrm()
+  const [state, { handleFileSelect, updateQuery, runQuery }] = useQueryBuilder()
   return (
     <div className="container">
       <input type="file" onChange={handleFileSelect} />
+      <button onClick={() => runQuery()}>Test</button>
       <Json>{state}</Json>
     </div>
   )

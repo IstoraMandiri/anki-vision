@@ -1,18 +1,13 @@
-import { createConnection } from 'typeorm'
+import { createConnection, getRepository } from 'typeorm'
 import { useState, useRef, useEffect } from 'react'
 import { getSavedFile, loadFile } from '../utils/file'
 import { Revlog, Cards, Col, Notes } from '../schema'
-
-interface OrmState {
-  ready?: boolean,
-  log?: any
-}
-interface OrmActions {
-  handleFileSelect: (any) => Promise<void>
-}
+import { colToCollectionInfo } from '../utils/transforms'
+import { getRevisions } from '../utils/queries'
+import Cache from '../utils/cache'
 
 export default function useOrm (): [OrmState, OrmActions] {
-  const [state, setState] = useState({} as OrmState)
+  const [state, setState] = useState({ ready: false })
 
   const connection = useRef(null)
 
@@ -21,13 +16,13 @@ export default function useOrm (): [OrmState, OrmActions] {
       type: 'sqljs',
       database: buffer,
       entities: [Revlog, Cards, Col, Notes],
-      logging: true
+      logging: true,
+      cache: { provider: () => new Cache() }
     })
-    const log = await connection.current.manager.findOne(Col)
-    setState({ log, ready: true })
+    setState({ ready: true })
   }
 
-  // check if the file exists locally first and load it
+  // load file if it  exists locally
   useEffect(() => {
     (async () => {
       const buffer = await getSavedFile()
@@ -35,14 +30,28 @@ export default function useOrm (): [OrmState, OrmActions] {
         connect(buffer)
       }
     })()
+    return () => {
+      connection.current.close()
+    }
   }, [])
 
-  async function handleFileSelect (e) {
+  async function handleFileSelect (e): Promise<void> {
     connect(await loadFile(e))
   }
 
+  async function getCollectionInfo (): Promise<CollectionInfo> {
+    const col = getRepository(Col)
+    return colToCollectionInfo(await col.findOne())
+  }
+
+  async function makeQuery (query): Promise<any> {
+    getRevisions(connection.current)
+  }
+
   const actions = {
-    handleFileSelect
+    handleFileSelect,
+    getCollectionInfo,
+    makeQuery
   }
 
   return [state, actions]

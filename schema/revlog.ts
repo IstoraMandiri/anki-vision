@@ -2,42 +2,42 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
 export default class Revlog {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'id' })
   id: number
   // -- epoch-milliseconds timestamp of when you did the review
 
-  @Column()
-  cid: number
+  @Column({ name: 'cid' })
+  cardId: number
   // -- cards.id
 
-  @Column()
-  usn: number
+  @Column({ name: 'usn' })
+  updateSequence: number
   // -- update sequence number: for finding diffs when syncing.
   // --   See the description in the cards table for more info
 
-  @Column()
+  @Column({ name: 'ease' })
   ease: number
   // -- which button you pushed to score your recall.
   // -- review:  1(wrong), 2(hard), 3(ok), 4(easy)
   // -- learn/relearn:   1(wrong), 2(ok), 3(easy)
 
-  @Column()
-  ivl: number
+  @Column({ name: 'ivl' })
+  interval: number
   // -- interval (i.e. as in the card table)
 
-  @Column()
-  lastIvl: number
+  @Column({ name: 'lastIvl' })
+  lastInterval: number
   // -- last interval (i.e. the last value of ivl. Note that this value is not necessarily equal to the actual interval between this review and the preceding review)
 
-  @Column()
+  @Column({ name: 'factor' })
   factor: number
   // -- factor
 
-  @Column()
+  @Column({ name: 'time' })
   time: number
   // -- how many milliseconds your review took, up to 60000 (60s)
 
-  @Column()
+  @Column({ name: 'type' })
   type: number
   // --  0=learn, 1=review, 2=relearn, 3=cram
 }
