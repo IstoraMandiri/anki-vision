@@ -3,7 +3,7 @@ import Counter from './counter'
 
 const c = new Counter() // hack to workaround TypeORM bug
 
-function splitFilters (items, { add, not }) {
+function split (items, { add, not }) {
   const res = { add: [], not: [] }
   Object.keys(items).forEach(k => {
     if (items[k]) {
@@ -23,7 +23,6 @@ function splitFilters (items, { add, not }) {
 function fuzz (q, to, items, operator) {
   q = q.andWhere(new Brackets(qb => {
     const [first, ...rest] = items
-    console.log({ first, rest })
     const i = c.c()
     let q2 = qb.where(`${to} ${operator} :${i}`, { [i]: `% ${first} %` })
     rest.forEach(item => {
@@ -33,7 +32,7 @@ function fuzz (q, to, items, operator) {
   }))
 }
 
-const ops = {
+const fns = {
   standard: (q, val, { operator, to }) => {
     const i = c.c()
     q = q.andWhere(`${to} ${operator} :${i}`, { [i]: val })
@@ -42,15 +41,14 @@ const ops = {
     const i = c.c()
     q = q.andWhere(`${to} ${val ? on : off} :${i}`, { [i]: value })
   },
-  fuzzy: (q, items, { to }) => {
-    splitFilters(items, {
+  fuzzy: (q, items, to) => {
+    split(items, {
       add: (i) => fuzz(q, to, i, 'LIKE'),
       not: (i) => fuzz(q, to, i, 'NOT LIKE')
     })
   },
-  array: (q, items, { to }) => {
-    console.log('splitting', q, items, { to })
-    splitFilters(items, {
+  array: (q, items, to) => {
+    split(items, {
       add: (i2) => {
         const i = c.c()
         q = q.andWhere(`${to} IN (:...${i})`, { [i]: i2 })
@@ -63,39 +61,23 @@ const ops = {
   }
 }
 
-const filtersMap = {
-  deck: {
-    type: 'array', params: { to: 'card.deckId' }
-  },
-  card: {
-    type: 'array', params: { to: 'cardId' }
-  },
-  noteType: {
-    type: 'array', params: { to: 'card.note.modelId' }
-  },
-  note: {
-    type: 'array', params: { to: 'card.nodeId' }
-  },
-  tag: {
-    type: 'fuzzy', params: { to: 'note.tags' }
-  },
-  suspended: {
-    type: 'boolean', params: { to: 'card.queue', off: '>', on: '<=', value: '-1' }
-  },
-  start: {
-    type: 'standard', params: { to: 'revisions.id', operator: '>' }
-  },
-  end: {
-    type: 'standard', params: { to: 'revisions.id', operator: '<' }
-  }
+const config = {
+  deck: { type: 'array', parmas: 'card.deckId' },
+  card: { type: 'array', parmas: 'cardId' },
+  noteType: { type: 'array', parmas: 'card.note.modelId' },
+  note: { type: 'array', parmas: 'card.nodeId' },
+  tag: { type: 'fuzzy', parmas: 'note.tags' },
+  suspended: { type: 'boolean', params: { to: 'card.queue', off: '>', on: '<=', value: '-1' } },
+  start: { type: 'standard', params: { to: 'revisions.id', operator: '>' } },
+  end: { type: 'standard', params: { to: 'revisions.id', operator: '<' } }
 }
 
-export default function applyFilters (q, filters) {
+export default function applyFilters (q, filters = {}) {
   Object.keys(filters).forEach(f => {
-    const { type, params } = filtersMap[f]
-    if (!ops[type]) {
+    const { type, params } = config[f]
+    if (!type) {
       throw new Error(`No filter operation for ${f}`)
     }
-    ops[type](q, filters[f], params)
+    fns[type](q, filters[f], params)
   })
 }

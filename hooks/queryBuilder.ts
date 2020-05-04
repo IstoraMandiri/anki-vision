@@ -4,14 +4,13 @@ import useOrm from './orm'
 import { getCollectionInfo, getRevisions } from '../utils/queries'
 
 const sampleQuery = {
-  filter: {
-    decks: { 1: true }
+  select: {
+    total: true
+    // tags: true,
+    // decks: true,
+    // noteTypes: true
   },
-  count: {
-    wrong: 'value'
-  },
-  period: 'year',
-  sort: {}
+  period: 'month'
 }
 
 export default function useQueryBuilder (): [QueryBuilderState, QueryBuilderActions] {
@@ -51,7 +50,7 @@ export default function useQueryBuilder (): [QueryBuilderState, QueryBuilderActi
   async function runQuery () {
     setResult({ ...result, loading: true, ready: false })
     await tick() // force it to re-render before blocking thread
-    const data = await getRevisions(query)
+    const data = await getRevisions({ query, info })
     setResult({ loading: false, ready: true, data })
   }
 

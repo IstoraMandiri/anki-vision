@@ -27,8 +27,9 @@ interface QueryBuilderInfo extends Partial<CollectionInfo> {
 }
 
 interface Query {
-  filter: {}
-  sort: {}
+  filter?: {}
+  select?: {}
+  period?: string
 }
 
 interface QueryBuilderActions {

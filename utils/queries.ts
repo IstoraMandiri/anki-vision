@@ -1,36 +1,8 @@
 import { getRepository } from 'typeorm'
 import { Revlog, Cards, Col, Notes } from '../schema'
 import applyFilters from './filters'
-
-const periods = {
-  minute: '%Y-%m-%d-%H:%M',
-  hour: '%Y-%m-%d-%H',
-  week: '%Y-%m-%W',
-  day: '%Y-%m-%d',
-  month: '%Y-%m',
-  year: '%Y'
-}
-
-const type = {
-  new: '0',
-  learning: '1',
-  due: '2',
-  relearning: '3'
-}
-
-const queue = {
-  userBuried: '-3',
-  buried: '-2',
-  suspended: '-1',
-  new: '0',
-  learning: '1',
-  due: '2',
-  learningNew: '3'
-}
-
-function getTimeQuery (period) {
-  return `strftime('${periods[period]}', id / 1000, 'unixepoch', 'localtime')`
-}
+import applySelects from './selects'
+import getTimeQuery from './periods'
 
 async function first (Repo, field) {
   return (await getRepository(Repo).createQueryBuilder().select(field).orderBy(field).limit(1).getRawOne())[field]
@@ -58,40 +30,22 @@ export async function getCollectionInfo () {
   }
 }
 
-// --- query options
-// - filters
-//
-// SELECTS
-// - fields
-// standard fields ()
-// ratio
-// cardTypes
-//
-// GROUP BYS
-// - grouping
-// periods
-//
-// cumulative
-// count
-// flags
-// queued (q >= 0)
-//
+export async function getRevisions ({ query, info }) {
+  const { period = 'month', limit = 1000 } = query
+  const timeStr = getTimeQuery(period)
 
-export async function getRevisions (query: Query) {
   let q = getRepository(Revlog)
-    .createQueryBuilder('revisions')
-    .leftJoinAndSelect('revisions.card', 'card')
-    .leftJoinAndSelect('card.note', 'note')
+    .createQueryBuilder('revision')
+    .leftJoin('revision.card', 'card')
+    .leftJoin('card.note', 'note')
+    .select(timeStr, period)
 
-  applyFilters(q, {})
+  applySelects(q, query.select, info)
+  applyFilters(q, query.filter)
 
-  q = q.limit(2)
-  // SPECIFIC DECK
-  // NOT SUSPENDED
-  // .addSelect(time, period)
-  // .groupBy(time)
-  // .cache(true)
-  const res = await q.getMany()
-  // console.log(JSON.stringify(res, null, 2))
+  q = q.groupBy(timeStr).limit(limit).cache(true)
+
+  const res = await q.getRawMany()
+
   return res
 }
