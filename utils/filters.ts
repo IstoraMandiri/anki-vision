@@ -58,26 +58,30 @@ const fns = {
         q = q.andWhere(`${to} NOT IN (:...${i})`, { [i]: i2 })
       }
     })
+  },
+  time: (q, items) => {
+    Object.keys(items).forEach(i => {
+      fns.standard(q, items[i], { to: 'revision.id', operator: i === 'start' ? '>' : '<' })
+    })
   }
 }
 
-const config = {
-  deck: { type: 'array', parmas: 'card.deckId' },
-  card: { type: 'array', parmas: 'cardId' },
-  noteType: { type: 'array', parmas: 'card.note.modelId' },
-  note: { type: 'array', parmas: 'card.nodeId' },
-  tag: { type: 'fuzzy', parmas: 'note.tags' },
+const config: QueryConfig = {
+  decks: { type: 'array', params: 'card.deckId' },
+  cards: { type: 'array', params: 'cardId' },
+  noteTypes: { type: 'array', params: 'note.modelId' },
+  notes: { type: 'array', params: 'card.nodeId' },
+  tags: { type: 'fuzzy', params: 'note.tags' },
   suspended: { type: 'boolean', params: { to: 'card.queue', off: '>', on: '<=', value: '-1' } },
-  start: { type: 'standard', params: { to: 'revisions.id', operator: '>' } },
-  end: { type: 'standard', params: { to: 'revisions.id', operator: '<' } }
+  time: { type: 'time' }
 }
 
-export default function applyFilters (q, filters = {}) {
+export default function applyFilters (q, filters = {} as QueryFilter) {
   Object.keys(filters).forEach(f => {
-    const { type, params } = config[f]
-    if (!type) {
+    const c = config[f]
+    if (!c) {
       throw new Error(`No filter operation for ${f}`)
     }
-    fns[type](q, filters[f], params)
+    fns[c.type](q, filters[f], c.params)
   })
 }

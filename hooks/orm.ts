@@ -1,8 +1,12 @@
 import { createConnection } from 'typeorm'
 import { useState, useRef, useEffect } from 'react'
 import { getSavedFile, loadFile } from '../utils/file'
-import { Revlog, Cards, Col, Notes } from '../schema'
 import Cache from '../utils/cache'
+
+import Revlog from '../schema/revlog'
+import Cards from '../schema/cards'
+import Col from '../schema/col'
+import Notes from '../schema/notes'
 
 export default function useOrm (): [OrmState, OrmActions] {
   const [state, setState] = useState({ ready: false, loading: true })

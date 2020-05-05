@@ -28,10 +28,48 @@ interface QueryBuilderInfo extends Partial<CollectionInfo> {
   loading: boolean
 }
 
+interface QueryFilter {
+  card?: { [k: string]: boolean }
+  deck?: { [k: string]: boolean }
+  noteType?: { [k: string]: boolean }
+  note?: { [k: string]: boolean }
+  tag?: { [k: string]: boolean }
+  suspended?: boolean
+  time?: {
+    start?: boolean
+    end?: boolean
+  }
+}
+
+interface QueryConfig {
+  [k: string]: {
+    type: string
+    params?: any
+  }
+}
+
+interface QuerySelect {
+  total?: boolean
+  time?: boolean
+  right?: boolean
+  wrong?: boolean
+  hard?: boolean
+  ok?: boolean
+  easy?: boolean
+  learn?: boolean
+  review?: boolean
+  relearn?: boolean
+  cram?: boolean
+  decks?: { [k: string]: boolean }
+  noteTypes?: { [k: string]: boolean }
+  tags?: { [k: string]: boolean }
+}
+
 interface Query {
-  filter?: {}
-  select?: {}
+  filter?: QueryFilter
+  select?: QuerySelect
   period?: string
+  limit?: number
 }
 
 interface QueryBuilderActions {
@@ -44,6 +82,7 @@ interface Result {
   ready: boolean;
   loading: boolean;
   data: any[];
+  query: Query
 }
 
 interface QueryBuilderState {

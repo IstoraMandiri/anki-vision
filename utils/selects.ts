@@ -24,7 +24,7 @@ const fns = {
   }
 }
 
-const config = {
+const config: QueryConfig = {
   total: { type: 'count' },
   time: { type: 'sum' },
   right: { type: 'case', params: 'revision.ease != 1' },
@@ -41,7 +41,7 @@ const config = {
   tags: { type: 'fuzzy', params: 'note.tags' }
 }
 
-export default function applySelects (q, options = {}, info) {
+export default function applySelects (q, options = {} as QuerySelect, info) {
   (Object.keys(options) || []).forEach(key => {
     const { type, params } = config[key] || {}
     if (!type) {

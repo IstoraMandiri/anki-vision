@@ -2,6 +2,7 @@
 import Json from './Json'
 import useQueryBuilder from '../hooks/query'
 import BuildQuery from './BuildQuery'
+import GraphRenderer from './GraphRenderer'
 
 const Dashboard = () => {
   const [state, actions] = useQueryBuilder()
@@ -15,7 +16,7 @@ const Dashboard = () => {
     <>
       <div>
         <BuildQuery state={state} actions={actions} />
-        <Json state={state} />
+        <GraphRenderer state={state} actions={actions} />
       </div>
     </>
   )

@@ -3,21 +3,16 @@ import tick from '../utils/tick'
 import useOrm from './orm'
 import { getCollectionInfo, getRevisions } from '../utils/queries'
 
-const sampleQuery = {
-  select: {
-    time: true
-    // wrong: true
-    // tags: true,
-    // decks: true,
-    // noteTypes: true
-  },
-  period: 'day'
+const defaultQuery: Query = {
+  period: 'month',
+  select: { time: true },
+  filter: {}
 }
 
 export default function useQuery (): [QueryBuilderState, QueryBuilderActions] {
   const [orm, { handleFileSelect }] = useOrm()
   const [info, setInfo] = useState({ loading: true, ready: false })
-  const [query, setQuery] = useState(sampleQuery as Query)
+  const [query, setQuery] = useState(defaultQuery)
   const [result, setResult] = useState({ loading: false, ready: false } as Result)
 
   useEffect(() => {
@@ -29,8 +24,9 @@ export default function useQuery (): [QueryBuilderState, QueryBuilderActions] {
   }, [orm.ready])
 
   function updateQuery (update) {
-    const { select, filter } = update
+    const { select, filter, period } = update
     setQuery({
+      period: period || query.period,
       select: select || query.select,
       filter: { ...query.filter, ...filter }
     })
@@ -43,8 +39,17 @@ export default function useQuery (): [QueryBuilderState, QueryBuilderActions] {
   async function runQuery () {
     setResult({ ...result, loading: true, ready: false })
     await tick() // force it to re-render before blocking thread
+
+    // if decks, noteTypes or tags are filtered, add them to selection...
+    const transformed = { ...query };
+    ['decks', 'noteTypes', 'tags'].forEach((k) => {
+      if (query.select[k] && query.filter[k]) {
+        transformed.select[k] = query.filter[k]
+      }
+    })
+    console.log(query, transformed)
     const data = await getRevisions({ query, info })
-    setResult({ loading: false, ready: true, data })
+    setResult({ loading: false, ready: true, data, query: transformed })
   }
 
   const actions = {

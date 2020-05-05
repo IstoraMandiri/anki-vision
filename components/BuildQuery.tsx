@@ -1,22 +1,8 @@
 import Json from './Json'
 import MultiSelect from './MultiSelect'
 import DateRange from './DateRange'
+import PeriodSelect from './PeriodSelect'
 
-// total
-// time
-// right
-// wrong
-// hard
-// ok
-// easy
-// learn
-// review
-// relearn
-// cram
-// decks
-// noteTypes
-// tags
-// TODO: add note
 const selectors = [
   { id: 'total', name: 'Revision Count' },
   { id: 'time', name: 'Time Taken' },
@@ -34,39 +20,38 @@ const selectors = [
   { id: 'tags', name: 'Tags' }
 ]
 
-// deck
-// card
-// noteType
-// note
-// tag
 // suspended --- TODO < special filters
-// start
-// end
 
 function objectify (arr) {
   return arr.reduce((o, i) => ({ ...o, [i]: true }), {})
 }
 
-const BuildQuery = ({ state: { info, query }, actions: { updateQuery } }) => {
+const BuildQuery = ({ state: { info, query }, actions: { updateQuery, runQuery } }) => {
   return (
     <>
       - Selectors
       <div>
-        <MultiSelect items={selectors} onChange={(i) => updateQuery({ select: objectify(i) })} />
+        <MultiSelect name="Selectors" items={selectors} onChange={(i) => updateQuery({ select: objectify(i) })} />
       </div>
       - Filters
       <div>
-        <MultiSelect items={info.tags} onChange={(i) => updateQuery({ filter: { tags: objectify(i) } })} />
-        <MultiSelect items={info.decks} onChange={(i) => updateQuery({ filter: { dekcs: objectify(i) } })} />
-        <MultiSelect items={info.noteTypes} onChange={(i) => updateQuery({ filter: { noteTypes: objectify(i) } })} />
-        <DateRange start={info.firstRevision} end={info.lastRevision} onChange={((res = []) => {
+        <MultiSelect name="Tags" items={info.tags} onChange={(i) => updateQuery({ filter: { tags: objectify(i) } })} />
+        <MultiSelect name="Decks" items={info.decks} onChange={(i) => updateQuery({ filter: { decks: objectify(i) } })} />
+        <MultiSelect name="Note Types" items={info.noteTypes} onChange={(i) => updateQuery({ filter: { noteTypes: objectify(i) } })} />
+        <DateRange start={info.firstRevision} end={info.lastRevision} onChange={((_res) => {
+          const res = _res || []
           updateQuery({
             filter: {
-              ...(res[0] && ({ start: res[0].valueOf() })),
-              ...(res[1] && ({ end: res[1].valueOf() }))
+              time: {
+                ...(res[0] && ({ start: res[0].valueOf() })),
+                ...(res[1] && ({ end: res[1].valueOf() }))
+              }
             }
           })
         })} />
+        <PeriodSelect period={query.period} onChange={(period) => updateQuery({ period })} />
+        <hr/>
+        <button onClick={runQuery}>Run!</button>
       </div>
     </>
   )

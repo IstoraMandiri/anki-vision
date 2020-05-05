@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm'
-import { Revlog, Notes } from '.'
+import Revlog from './revlog'
+import Notes from './notes'
 
 @Entity()
 export default class Cards {

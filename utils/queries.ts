@@ -1,8 +1,12 @@
 import { getRepository } from 'typeorm'
-import { Revlog, Cards, Col, Notes } from '../schema'
 import applyFilters from './filters'
 import applySelects from './selects'
 import getTimeQuery from './periods'
+
+import Revlog from '../schema/revlog'
+import Cards from '../schema/cards'
+import Col from '../schema/col'
+import Notes from '../schema/notes'
 
 async function first (Repo, field) {
   return (await getRepository(Repo).createQueryBuilder().select(field).orderBy(field).limit(1).getRawOne())[field]
@@ -18,7 +22,6 @@ async function count (Repo): Promise<number> {
 
 export async function getCollectionInfo () {
   const col = await getRepository(Col).createQueryBuilder().getOne()
-  // console.log(col)
   return {
     cards: await count(Cards),
     revisions: await count(Revlog),
@@ -32,8 +35,10 @@ export async function getCollectionInfo () {
 }
 
 export async function getRevisions ({ query, info }) {
-  const { period = 'month', limit = 1000 } = query
+  const { period = 'month', limit = 10000 } = query
   const timeStr = getTimeQuery(period)
+
+  console.log('yo', query)
 
   let q = getRepository(Revlog)
     .createQueryBuilder('revision')

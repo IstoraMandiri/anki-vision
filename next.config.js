@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   webpack: config => {
     config.node = { fs: 'empty' }
+    config.optimization.minimize = false
     config.plugins.push(
       new webpack.NormalModuleReplacementPlugin(/typeorm$/, function (result) {
         result.request = result.request.replace(/typeorm/, 'typeorm/browser')
