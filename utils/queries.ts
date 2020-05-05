@@ -18,6 +18,7 @@ async function count (Repo): Promise<number> {
 
 export async function getCollectionInfo () {
   const col = await getRepository(Col).createQueryBuilder().getOne()
+  // console.log(col)
   return {
     cards: await count(Cards),
     revisions: await count(Revlog),

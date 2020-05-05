@@ -5,11 +5,12 @@ import { Revlog, Cards, Col, Notes } from '../schema'
 import Cache from '../utils/cache'
 
 export default function useOrm (): [OrmState, OrmActions] {
-  const [state, setState] = useState({ ready: false })
+  const [state, setState] = useState({ ready: false, loading: true })
 
   const connection = useRef(null)
 
   async function connect (buffer) {
+    setState({ ready: false, loading: true })
     connection.current = await createConnection({
       type: 'sqljs',
       database: buffer,
@@ -17,7 +18,7 @@ export default function useOrm (): [OrmState, OrmActions] {
       logging: true,
       cache: { provider: () => new Cache() }
     })
-    setState({ ready: true })
+    setState({ ready: true, loading: false })
   }
 
   // load file if it  exists locally
@@ -26,6 +27,8 @@ export default function useOrm (): [OrmState, OrmActions] {
       const buffer = await getSavedFile()
       if (buffer) {
         connect(buffer)
+      } else {
+        setState({ ready: false, loading: false })
       }
     })()
     return () => {

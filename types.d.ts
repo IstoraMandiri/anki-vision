@@ -16,6 +16,7 @@ interface CollectionInfo {
 
 interface OrmState {
   ready: boolean
+  loading: boolean
 }
 
 interface OrmActions {
@@ -24,6 +25,7 @@ interface OrmActions {
 
 interface QueryBuilderInfo extends Partial<CollectionInfo> {
   ready: boolean
+  loading: boolean
 }
 
 interface Query {
@@ -48,4 +50,5 @@ interface QueryBuilderState {
   query: Query
   info: QueryBuilderInfo
   result: Result
+  orm: OrmState
 }

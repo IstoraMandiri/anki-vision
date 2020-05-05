@@ -11,7 +11,7 @@ export function loadFile (e) {
     r.onload = async () => {
       const buffer = new Uint8Array(r.result)
       await db.data.put({ id: 1, buffer })
-      return buffer
+      resolve(buffer)
     }
     r.readAsArrayBuffer(f)
   })

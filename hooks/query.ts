@@ -5,41 +5,34 @@ import { getCollectionInfo, getRevisions } from '../utils/queries'
 
 const sampleQuery = {
   select: {
-    total: true
+    time: true
+    // wrong: true
     // tags: true,
     // decks: true,
     // noteTypes: true
   },
-  period: 'month'
+  period: 'day'
 }
 
-export default function useQueryBuilder (): [QueryBuilderState, QueryBuilderActions] {
-  const [{ ready }, { handleFileSelect }] = useOrm()
-  const [info, setInfo] = useState({ ready: false })
-  const [query, setQuery] = useState(sampleQuery)
+export default function useQuery (): [QueryBuilderState, QueryBuilderActions] {
+  const [orm, { handleFileSelect }] = useOrm()
+  const [info, setInfo] = useState({ loading: true, ready: false })
+  const [query, setQuery] = useState(sampleQuery as Query)
   const [result, setResult] = useState({ loading: false, ready: false } as Result)
 
   useEffect(() => {
-    if (ready) {
+    if (orm.ready) {
       (async () => {
-        setInfo({
-          ready: true,
-          ...await initialize()
-        })
+        setInfo({ ...await initialize(), ready: true, loading: false })
       })()
     }
-  }, [ready])
+  }, [orm.ready])
 
-  function updateQuery ({ type, field, id, value }) {
+  function updateQuery (update) {
+    const { select, filter } = update
     setQuery({
-      ...query,
-      [type]: {
-        ...query[type],
-        [field]: {
-          ...query[type][field],
-          [id]: value
-        }
-      }
+      select: select || query.select,
+      filter: { ...query.filter, ...filter }
     })
   }
 
@@ -60,5 +53,5 @@ export default function useQueryBuilder (): [QueryBuilderState, QueryBuilderActi
     runQuery
   }
 
-  return [{ query, info, result }, actions]
+  return [{ query, orm, info, result }, actions]
 }
