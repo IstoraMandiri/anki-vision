@@ -23,7 +23,7 @@ const selectors = [
 // suspended --- TODO < special filters
 
 function objectify (arr) {
-  return arr.reduce((o, i) => ({ ...o, [i]: true }), {})
+  return arr.reduce((o, i) => ({ ...o, [i.key]: true }), {})
 }
 
 const BuildQuery = ({ state: { info, query }, actions: { updateQuery, runQuery } }) => {

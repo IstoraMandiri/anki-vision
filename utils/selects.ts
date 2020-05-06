@@ -7,20 +7,27 @@ const fns = {
   },
   many (q, key, params, info, options) {
     info[key].forEach(({ id }) => {
-      if (options === true || options[id]) {
+      if (options === true || Object.keys(options).length === 0 || options[id]) {
         fns.case(q, `${key}_${id}`, `${params} = ${id}`)
       }
     })
   },
   sum (q, key) {
-    q = q.addSelect(`SUM(${key})`, key)
+    q = q.addSelect(`SUM(revision.${key})`, key)
   },
   fuzzy (q, key, params, info, options) {
-    info[key].forEach(({ id }) => {
-      if (options === true || options[id]) {
-        q = q.addSelect(`COUNT(CASE WHEN ${params} LIKE '% ${id} %' then 1 ELSE NULL END)`, `${key}_${id}`)
-      }
-    })
+    const scanAll = options === true || Object.keys(options).length === 0
+    // console.log({ q, key, params, info, options })
+    // we don't have a list of tags to search
+    if (scanAll) {
+      info[key].forEach(({ id }) => {
+        q = q.addSelect(`COUNT(CASE WHEN ${params} LIKE '%${id}%' then 1 ELSE NULL END)`, `${key}_${id}`)
+      })
+    } else {
+      Object.keys(options).forEach(id => {
+        q = q.addSelect(`COUNT(CASE WHEN ${params} LIKE '%${id}%' then 1 ELSE NULL END)`, `${key}_${id}`)
+      })
+    }
   }
 }
 
@@ -43,6 +50,7 @@ const config: QueryConfig = {
 
 export default function applySelects (q, options = {} as QuerySelect, info) {
   (Object.keys(options) || []).forEach(key => {
+    console.log('applyin', key, options[key])
     const { type, params } = config[key] || {}
     if (!type) {
       throw new Error(`No select operation for ${key}`)

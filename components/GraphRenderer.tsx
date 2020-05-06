@@ -2,22 +2,30 @@ import Json from './Json'
 
 import Line from './Line'
 
-function transformData ({ query: { period }, data }) {
+function transformData ({ data }) {
   return Object.keys(data[0]).reduce((a, id) => {
-    return id === period ? a : [...a, { id, data: data.map(d => ({ x: d[period], y: d[id] })) }]
-  }, [])
+    let hasY = false
+    const parsed = data.map(d => {
+      if (d[id]) {
+        hasY = true
+      }
+      return { x: d.period, y: d[id] }
+    })
+    return id === 'period' ? a : [...a, { id, hasY, data: parsed }]
+  }, []).filter(d => d.hasY)
 }
 
-const GraphRenderer = ({ state, actions }) => {
+const GraphRenderer = ({ state }) => {
   const { result } = state
   if (!result.ready) { return null }
+  if (!result.data.length) {
+    return <>No Results</>
+  }
   const data = transformData(result)
   return (
     <>
       <div>
-        I am a graph GraphRenderer
         <Line data={data} />
-        <Json res={state.result} data={data} />
       </div>
     </>
   )

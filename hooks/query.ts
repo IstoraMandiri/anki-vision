@@ -47,8 +47,7 @@ export default function useQuery (): [QueryBuilderState, QueryBuilderActions] {
         transformed.select[k] = query.filter[k]
       }
     })
-    console.log(query, transformed)
-    const data = await getRevisions({ query, info })
+    const data = await getRevisions({ query: transformed, info })
     setResult({ loading: false, ready: true, data, query: transformed })
   }
 

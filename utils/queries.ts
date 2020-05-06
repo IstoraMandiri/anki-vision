@@ -29,13 +29,13 @@ export async function getCollectionInfo () {
     firstRevision: await first(Revlog, 'id'),
     lastRevision: await last(Revlog, 'id'),
     decks: Object.values(col.decks).map(({ id, name }) => ({ id, name })),
-    tags: Object.keys(col.tags).map(t => ({ id: t, name: t })),
+    tags: Object.keys(col.tags).map(t => ({ id: ` ${t} `, name: t })),
     noteTypes: Object.values(col.noteTypes).map(({ id, name }) => ({ id, name }))
   }
 }
 
 export async function getRevisions ({ query, info }) {
-  const { period = 'month', limit = 10000 } = query
+  const { period = 'month', limit = 999999999 } = query
   const timeStr = getTimeQuery(period)
 
   console.log('yo', query)
@@ -44,7 +44,7 @@ export async function getRevisions ({ query, info }) {
     .createQueryBuilder('revision')
     .leftJoin('revision.card', 'card')
     .leftJoin('card.note', 'note')
-    .select(timeStr, period)
+    .select(timeStr, 'period')
 
   applySelects(q, query.select, info)
   applyFilters(q, query.filter)

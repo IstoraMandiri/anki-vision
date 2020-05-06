@@ -4,6 +4,8 @@ import useQueryBuilder from '../hooks/query'
 import BuildQuery from './BuildQuery'
 import GraphRenderer from './GraphRenderer'
 
+// import { state } from '../utils/test.json'
+
 const Dashboard = () => {
   const [state, actions] = useQueryBuilder()
   if (!state.orm.loading && !state.orm.ready) {
@@ -16,7 +18,8 @@ const Dashboard = () => {
     <>
       <div>
         <BuildQuery state={state} actions={actions} />
-        <GraphRenderer state={state} actions={actions} />
+        {/* <Json state={state} /> */}
+        <GraphRenderer state={state} />
       </div>
     </>
   )

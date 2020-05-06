@@ -24,10 +24,10 @@ function fuzz (q, to, items, operator) {
   q = q.andWhere(new Brackets(qb => {
     const [first, ...rest] = items
     const i = c.c()
-    let q2 = qb.where(`${to} ${operator} :${i}`, { [i]: `% ${first} %` })
+    let q2 = qb.where(`${to} ${operator} :${i}`, { [i]: `%${first}%` })
     rest.forEach(item => {
       const i = c.c()
-      q2 = q2.orWhere(`${to} ${operator} :${i}`, { [i]: `% ${item} %` })
+      q2 = q2.orWhere(`${to} ${operator} :${i}`, { [i]: `%${item}%` })
     })
   }))
 }
