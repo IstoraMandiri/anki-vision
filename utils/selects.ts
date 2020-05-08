@@ -38,10 +38,14 @@ const fns = {
 
 export const selects: QueryConfig = {
   total: { type: "count", name: "Revision Count" },
+  tags: { type: "fuzzy", params: "note.tags", name: "Tags" },
+  decks: { type: "many", params: "card.deckId", name: "Deck Names" },
+  noteTypes: { type: "many", params: "note.modelId", name: "Note Types" },
   time: { type: "sum", name: "Time Taken" },
   right: { type: "case", params: "revision.ease != 1", name: "Right" },
   wrong: { type: "case", params: "revision.ease = 1", name: "Wrong" },
   hard: { type: "case", params: "(revision.type = 1 AND revision.ease = 2)", name: "Hard" },
+  // TODO check these are correct
   ok: {
     type: "case",
     params:
@@ -58,9 +62,6 @@ export const selects: QueryConfig = {
   review: { type: "case", params: "revision.type = 1", name: "Review" },
   relearn: { type: "case", params: "revision.type = 2", name: "Relearn" },
   cram: { type: "case", params: "revision.type = 3", name: "Cram" },
-  decks: { type: "many", params: "card.deckId", name: "Deck Names" },
-  noteTypes: { type: "many", params: "note.modelId", name: "Note Types" },
-  tags: { type: "fuzzy", params: "note.tags", name: "Tags" },
 };
 
 export default function applySelects(q, options = {} as QuerySelect, info) {

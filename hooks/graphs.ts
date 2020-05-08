@@ -33,7 +33,7 @@ const graphTypes = {
 };
 
 export default function useGraphs({ query, result, info }): [any, any] {
-  const [graph, setGraph] = useState({ type: "bump" });
+  const [graph, setGraph] = useState({ type: "line" });
 
   const { Comp, transform } = graphTypes[graph.type];
   const data = result.ready && transform(result, info);

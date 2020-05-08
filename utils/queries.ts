@@ -38,9 +38,15 @@ export async function getCollectionInfo() {
     notes: await count(Notes),
     firstRevision: await first(Revlog, "id"),
     lastRevision: await last(Revlog, "id"),
-    decks: Object.values(col.decks).map(({ id, name }) => ({ id, name })),
-    tags: Object.keys(col.tags).map((t) => ({ id: ` ${t} `, name: t })),
-    noteTypes: Object.values(col.noteTypes).map(({ id, name }) => ({ id, name })),
+    decks: Object.values(col.decks)
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map(({ id, name }) => ({ id, name })),
+    tags: Object.keys(col.tags)
+      .sort((a, b) => a.localeCompare(b))
+      .map((t) => ({ id: ` ${t} `, name: t })),
+    noteTypes: Object.values(col.noteTypes)
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map(({ id, name }) => ({ id, name })),
   };
 }
 
