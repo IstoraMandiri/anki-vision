@@ -1,10 +1,10 @@
-import { ResponsiveLine as RL } from '@nivo/line'
-import { TableTooltip } from '@nivo/tooltip'
+import { ResponsiveLine as RL } from "@nivo/line";
+import { TableTooltip } from "@nivo/tooltip";
 
-const ResponsiveLine: any = RL
+const ResponsiveLine: any = RL;
 
 const MyResponsiveLine = ({ data }) => (
-  <div style={{ height: '500px' }}>
+  <div style={{ height: "500px" }}>
     <ResponsiveLine
       data={data}
       margin={{ top: 10, right: 10, bottom: 50, left: 100 }}
@@ -12,24 +12,36 @@ const MyResponsiveLine = ({ data }) => (
       axisRight={null}
       curve="basis"
       axisBottom={{
-        orient: 'bottom',
+        orient: "bottom",
         tickRotation: 90,
-        tickValues: data[0].data.map((d, i) => i % 20 === 0 ? d.x : '')
+        tickValues: data[0].data.map((d, i) => (i % 20 === 0 ? d.x : "")),
       }}
       axisLeft={{
-        orient: 'left',
+        orient: "left",
         tickRotation: 0,
-        legend: 'Revisions',
+        legend: "Revisions",
         legendOffset: -80,
-        legendPosition: 'middle'
+        legendPosition: "middle",
       }}
       sliceTooltip={({ slice }) => (
         <TableTooltip
-          rows={slice.points.filter(p => p.data.y > 0).sort((a, b) => b.data.y - a.data.y).map(point => [
-            <span style={{ display: 'block', width: '12px', height: '12px', background: point.serieColor }} key="chip" color={point.serieColor} />,
-            point.serieId,
-            <strong key="value">{point.data.yFormatted}</strong>
-          ])}
+          rows={slice.points
+            .filter((p) => p.data.y > 0)
+            .sort((a, b) => b.data.y - a.data.y)
+            .map((point) => [
+              <span
+                style={{
+                  display: "block",
+                  width: "12px",
+                  height: "12px",
+                  background: point.serieColor,
+                }}
+                key="chip"
+                color={point.serieColor}
+              />,
+              point.serieId,
+              <strong key="value">{point.data.yFormatted}</strong>,
+            ])}
         />
       )}
       enableGridX={false}
@@ -37,9 +49,9 @@ const MyResponsiveLine = ({ data }) => (
       animate={false}
       enableArea={true}
       enablePoints={false}
-      enableSlices={'x'}
+      enableSlices={"x"}
     />
   </div>
-)
+);
 
-export default MyResponsiveLine
+export default MyResponsiveLine;

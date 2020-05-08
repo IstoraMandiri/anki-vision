@@ -45,6 +45,7 @@ interface QueryConfig {
   [k: string]: {
     type: string
     params?: any
+    name: string
   }
 }
 

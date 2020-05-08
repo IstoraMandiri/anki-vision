@@ -1,9 +1,9 @@
-import Dashboard from '../components/Dashboard'
+import Dashboard from "../components/Dashboard";
 
 const App = () => (
   <div className="container">
     <Dashboard />
   </div>
-)
+);
 
-export default App
+export default App;

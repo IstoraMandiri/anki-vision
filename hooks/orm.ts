@@ -1,52 +1,52 @@
-import { createConnection } from 'typeorm'
-import { useState, useRef, useEffect } from 'react'
-import { getSavedFile, loadFile } from '../utils/file'
-import Cache from '../utils/cache'
+import { createConnection } from "typeorm";
+import { useState, useRef, useEffect } from "react";
+import { getSavedFile, loadFile } from "../utils/file";
+import Cache from "../utils/cache";
 
-import Revlog from '../schema/revlog'
-import Cards from '../schema/cards'
-import Col from '../schema/col'
-import Notes from '../schema/notes'
+import Revlog from "../schema/revlog";
+import Cards from "../schema/cards";
+import Col from "../schema/col";
+import Notes from "../schema/notes";
 
-export default function useOrm (): [OrmState, OrmActions] {
-  const [state, setState] = useState({ ready: false, loading: true })
+export default function useOrm(): [OrmState, OrmActions] {
+  const [state, setState] = useState({ ready: false, loading: true });
 
-  const connection = useRef(null)
+  const connection = useRef(null);
 
-  async function connect (buffer) {
-    setState({ ready: false, loading: true })
+  async function connect(buffer) {
+    setState({ ready: false, loading: true });
     connection.current = await createConnection({
-      type: 'sqljs',
+      type: "sqljs",
       database: buffer,
       entities: [Revlog, Cards, Col, Notes],
       logging: true,
-      cache: { provider: () => new Cache() }
-    })
-    setState({ ready: true, loading: false })
+      cache: { provider: () => new Cache() },
+    });
+    setState({ ready: true, loading: false });
   }
 
   // load file if it  exists locally
   useEffect(() => {
     (async () => {
-      const buffer = await getSavedFile()
+      const buffer = await getSavedFile();
       if (buffer) {
-        connect(buffer)
+        connect(buffer);
       } else {
-        setState({ ready: false, loading: false })
+        setState({ ready: false, loading: false });
       }
-    })()
+    })();
     return () => {
-      connection.current.close()
-    }
-  }, [])
+      connection.current.close();
+    };
+  }, []);
 
-  async function handleFileSelect (e): Promise<void> {
-    connect(await loadFile(e))
+  async function handleFileSelect(e): Promise<void> {
+    connect(await loadFile(e));
   }
 
   const actions = {
-    handleFileSelect
-  }
+    handleFileSelect,
+  };
 
-  return [state, actions]
+  return [state, actions];
 }

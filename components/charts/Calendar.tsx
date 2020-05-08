@@ -1,9 +1,11 @@
-import { ResponsiveCalendar } from '@nivo/calendar'
+import { ResponsiveCalendar } from "@nivo/calendar";
 
 const Calendar = ({ data: { data, first, last } }) => {
-  if (!data) { return null }
+  if (!data) {
+    return null;
+  }
   return (
-    <div style={{ height: '500px' }} >
+    <div style={{ height: "500px" }}>
       <ResponsiveCalendar
         data={data}
         from={first}
@@ -14,7 +16,7 @@ const Calendar = ({ data: { data, first, last } }) => {
         dayBorderColor="#ffffff"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Calendar
+export default Calendar;

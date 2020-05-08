@@ -1,6 +1,6 @@
-import 'reflect-metadata'
-import 'antd/dist/antd.css'
+import "reflect-metadata";
+import "antd/dist/antd.css";
 
-export default function App ({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }

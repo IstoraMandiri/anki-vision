@@ -1,21 +1,20 @@
+import Json from "./Json";
+import useQueryBuilder from "../hooks/query";
+import BuildQuery from "./BuildQuery";
+import GraphRenderer from "./GraphRenderer";
 
-import Json from './Json'
-import useQueryBuilder from '../hooks/query'
-import BuildQuery from './BuildQuery'
-import GraphRenderer from './GraphRenderer'
+import testState from "../utils/test.json";
+const { all, months } = testState;
 
-import testState from '../utils/test.json'
-const { all, months } = testState
-
-const test = () => <GraphRenderer state={months} />
+const test = () => <GraphRenderer state={months} />;
 
 const Dashboard = () => {
-  const [state, actions] = useQueryBuilder()
+  const [state, actions] = useQueryBuilder();
   if (!state.orm.loading && !state.orm.ready) {
-    return <input type="file" onChange={actions.handleFileSelect} />
+    return <input type="file" onChange={actions.handleFileSelect} />;
   }
   if (state.info.loading) {
-    return <>Loading</>
+    return <>Loading</>;
   }
   return (
     <>
@@ -25,9 +24,9 @@ const Dashboard = () => {
         {/* <Json state={state} /> */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
 
 // export default test

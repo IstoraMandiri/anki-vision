@@ -1,11 +1,11 @@
-import { DatePicker } from 'antd'
-import moment from 'moment'
+import { DatePicker } from "antd";
+import moment from "moment";
 
-const { RangePicker } = DatePicker
+const { RangePicker } = DatePicker;
 
 const DateRange = ({ start, end, onChange }) => {
-  const s = moment(start)
-  const e = moment(end)
+  const s = moment(start);
+  const e = moment(end);
   return (
     <RangePicker
       allowClear
@@ -14,9 +14,9 @@ const DateRange = ({ start, end, onChange }) => {
       disabledDate={(current) => current.isBefore(s) || current.isAfter(e)}
       onChange={onChange}
     />
-  )
-}
+  );
+};
 
-export default DateRange
+export default DateRange;
 
 // allowEmpty
