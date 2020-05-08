@@ -1,7 +1,8 @@
 import Json from './Json'
 import MultiSelect from './MultiSelect'
 import DateRange from './DateRange'
-import PeriodSelect from './PeriodSelect'
+import { periods } from '../utils/periods'
+import DropdownSelect from './Dropdown'
 
 const selectors = [
   { id: 'total', name: 'Revision Count' },
@@ -49,7 +50,7 @@ const BuildQuery = ({ state: { info, query }, actions: { updateQuery, runQuery }
             }
           })
         })} />
-        <PeriodSelect period={query.period} onChange={(period) => updateQuery({ period })} />
+        <DropdownSelect items={periods} selected={query.period} onChange={(period) => updateQuery({ period })} />
         <hr/>
         <button onClick={runQuery}>Run!</button>
       </div>

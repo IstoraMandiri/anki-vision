@@ -17,7 +17,6 @@ const fns = {
   },
   fuzzy (q, key, params, info, options) {
     const scanAll = options === true || Object.keys(options).length === 0
-    // console.log({ q, key, params, info, options })
     // we don't have a list of tags to search
     if (scanAll) {
       info[key].forEach(({ id }) => {
@@ -50,7 +49,6 @@ const config: QueryConfig = {
 
 export default function applySelects (q, options = {} as QuerySelect, info) {
   (Object.keys(options) || []).forEach(key => {
-    console.log('applyin', key, options[key])
     const { type, params } = config[key] || {}
     if (!type) {
       throw new Error(`No select operation for ${key}`)

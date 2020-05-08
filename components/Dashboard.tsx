@@ -4,7 +4,10 @@ import useQueryBuilder from '../hooks/query'
 import BuildQuery from './BuildQuery'
 import GraphRenderer from './GraphRenderer'
 
-// import { state } from '../utils/test.json'
+import testState from '../utils/test.json'
+const { all, months } = testState
+
+const test = () => <GraphRenderer state={months} />
 
 const Dashboard = () => {
   const [state, actions] = useQueryBuilder()
@@ -18,11 +21,13 @@ const Dashboard = () => {
     <>
       <div>
         <BuildQuery state={state} actions={actions} />
-        {/* <Json state={state} /> */}
         <GraphRenderer state={state} />
+        {/* <Json state={state} /> */}
       </div>
     </>
   )
 }
 
 export default Dashboard
+
+// export default test

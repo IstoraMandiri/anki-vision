@@ -38,7 +38,7 @@ export async function getRevisions ({ query, info }) {
   const { period = 'month', limit = 999999999 } = query
   const timeStr = getTimeQuery(period)
 
-  console.log('yo', query)
+  // console.log('yo', query)
 
   let q = getRepository(Revlog)
     .createQueryBuilder('revision')

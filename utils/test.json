@@ -1,0 +1,1623 @@
+{
+  "all": {
+    "query": {
+      "period": "all",
+      "select": {
+        "tags": true
+      },
+      "filter": {}
+    },
+    "orm": {
+      "ready": true,
+      "loading": false
+    },
+    "info": {
+      "cards": 31449,
+      "revisions": 180530,
+      "notes": 28081,
+      "firstRevision": 1531157715051,
+      "lastRevision": 1588320007485,
+      "decks": [
+        {
+          "id": 1,
+          "name": "Reading::Polar Bear Cafe"
+        },
+        {
+          "id": 1546936345526,
+          "name": "Archive::Characters"
+        },
+        {
+          "id": 1538041629583,
+          "name": "Archive::Characters::Kana"
+        },
+        {
+          "id": 1541751897082,
+          "name": "Archive::Listening::Tango"
+        },
+        {
+          "id": 1547687579434,
+          "name": "Archive::English::People"
+        },
+        {
+          "id": 1540365075922,
+          "name": "Archive::English"
+        },
+        {
+          "id": 1546936319881,
+          "name": "Archive::Listening"
+        },
+        {
+          "id": 1545490736154,
+          "name": "Archive::Listening::Mining"
+        },
+        {
+          "id": 1531157365064,
+          "name": "Archive::Characters::RTK"
+        },
+        {
+          "id": 1550891190436,
+          "name": "Archive::English::Words"
+        },
+        {
+          "id": 1554127945700,
+          "name": "Reading"
+        },
+        {
+          "id": 1555657203726,
+          "name": "Reading::Attack on Titan"
+        },
+        {
+          "id": 1558608352288,
+          "name": "Archive::Listening::Core 2000"
+        },
+        {
+          "id": 1558716651885,
+          "name": "Reading::Mukashi"
+        },
+        {
+          "id": 1565506291638,
+          "name": "Archive"
+        },
+        {
+          "id": 1566825125898,
+          "name": "Reading::Mined Vocab"
+        },
+        {
+          "id": 1573008357367,
+          "name": "Reading::Harry Potter"
+        },
+        {
+          "id": 1579431384944,
+          "name": "Jtest4you"
+        },
+        {
+          "id": 1579431384945,
+          "name": "Jtest4you::N5"
+        },
+        {
+          "id": 1579431384952,
+          "name": "Jtest4you::N4"
+        },
+        {
+          "id": 1579431384974,
+          "name": "Jtest4you::N3"
+        },
+        {
+          "id": 1579431385001,
+          "name": "Jtest4you::N2"
+        },
+        {
+          "id": 1579431385044,
+          "name": "Jtest4you::N1"
+        }
+      ],
+      "tags": [
+        {
+          "id": " hiragana ",
+          "name": "hiragana"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_01 ",
+          "name": "Attack_on_Titan_with_English_Translations_01"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_03 ",
+          "name": "Attack_on_Titan_with_English_Translations_03"
+        },
+        {
+          "id": " 単語N4 ",
+          "name": "単語N4"
+        },
+        {
+          "id": " kanji ",
+          "name": "kanji"
+        },
+        {
+          "id": " 単語N5 ",
+          "name": "単語N5"
+        },
+        {
+          "id": " kana ",
+          "name": "kana"
+        },
+        {
+          "id": " custom ",
+          "name": "custom"
+        },
+        {
+          "id": " mining ",
+          "name": "mining"
+        },
+        {
+          "id": " leech ",
+          "name": "leech"
+        },
+        {
+          "id": " rtk3 ",
+          "name": "rtk3"
+        },
+        {
+          "id": " reading ",
+          "name": "reading"
+        },
+        {
+          "id": " rtk1 ",
+          "name": "rtk1"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_02 ",
+          "name": "Attack_on_Titan_with_English_Translations_02"
+        },
+        {
+          "id": " katakana ",
+          "name": "katakana"
+        },
+        {
+          "id": " marked ",
+          "name": "marked"
+        },
+        {
+          "id": " Core2k ",
+          "name": "Core2k"
+        },
+        {
+          "id": " C2K ",
+          "name": "C2K"
+        },
+        {
+          "id": " shirokuma_09 ",
+          "name": "shirokuma_09"
+        },
+        {
+          "id": " shirokuma_41 ",
+          "name": "shirokuma_41"
+        },
+        {
+          "id": " shirokuma_36 ",
+          "name": "shirokuma_36"
+        },
+        {
+          "id": " shirokuma_38 ",
+          "name": "shirokuma_38"
+        },
+        {
+          "id": " shirokuma_14 ",
+          "name": "shirokuma_14"
+        },
+        {
+          "id": " shirokuma_03 ",
+          "name": "shirokuma_03"
+        },
+        {
+          "id": " shirokuma_34 ",
+          "name": "shirokuma_34"
+        },
+        {
+          "id": " shirokuma_39 ",
+          "name": "shirokuma_39"
+        },
+        {
+          "id": " shirokuma_32 ",
+          "name": "shirokuma_32"
+        },
+        {
+          "id": " shirokuma_33 ",
+          "name": "shirokuma_33"
+        },
+        {
+          "id": " shirokuma_47 ",
+          "name": "shirokuma_47"
+        },
+        {
+          "id": " shirokuma_01 ",
+          "name": "shirokuma_01"
+        },
+        {
+          "id": " shirokuma_18 ",
+          "name": "shirokuma_18"
+        },
+        {
+          "id": " shirokuma_10 ",
+          "name": "shirokuma_10"
+        },
+        {
+          "id": " shirokuma_19 ",
+          "name": "shirokuma_19"
+        },
+        {
+          "id": " shirokuma_29 ",
+          "name": "shirokuma_29"
+        },
+        {
+          "id": " shirokuma_40 ",
+          "name": "shirokuma_40"
+        },
+        {
+          "id": " shirokuma_13 ",
+          "name": "shirokuma_13"
+        },
+        {
+          "id": " shirokuma_42 ",
+          "name": "shirokuma_42"
+        },
+        {
+          "id": " shirokuma_43 ",
+          "name": "shirokuma_43"
+        },
+        {
+          "id": " shirokuma_24 ",
+          "name": "shirokuma_24"
+        },
+        {
+          "id": " shirokuma_27 ",
+          "name": "shirokuma_27"
+        },
+        {
+          "id": " shirokuma_07 ",
+          "name": "shirokuma_07"
+        },
+        {
+          "id": " shirokuma_21 ",
+          "name": "shirokuma_21"
+        },
+        {
+          "id": " shirokuma_50 ",
+          "name": "shirokuma_50"
+        },
+        {
+          "id": " shirokuma_45 ",
+          "name": "shirokuma_45"
+        },
+        {
+          "id": " shirokuma_23 ",
+          "name": "shirokuma_23"
+        },
+        {
+          "id": " shirokuma_48 ",
+          "name": "shirokuma_48"
+        },
+        {
+          "id": " shirokuma_46 ",
+          "name": "shirokuma_46"
+        },
+        {
+          "id": " shirokuma_17 ",
+          "name": "shirokuma_17"
+        },
+        {
+          "id": " shirokuma_22 ",
+          "name": "shirokuma_22"
+        },
+        {
+          "id": " shirokuma_11 ",
+          "name": "shirokuma_11"
+        },
+        {
+          "id": " shirokuma_04 ",
+          "name": "shirokuma_04"
+        },
+        {
+          "id": " shirokuma_06 ",
+          "name": "shirokuma_06"
+        },
+        {
+          "id": " shirokuma_49 ",
+          "name": "shirokuma_49"
+        },
+        {
+          "id": " shirokuma_26 ",
+          "name": "shirokuma_26"
+        },
+        {
+          "id": " shirokuma_28 ",
+          "name": "shirokuma_28"
+        },
+        {
+          "id": " shirokuma_20 ",
+          "name": "shirokuma_20"
+        },
+        {
+          "id": " shirokuma_30 ",
+          "name": "shirokuma_30"
+        },
+        {
+          "id": " shirokuma_37 ",
+          "name": "shirokuma_37"
+        },
+        {
+          "id": " shirokuma_08 ",
+          "name": "shirokuma_08"
+        },
+        {
+          "id": " shirokuma_35 ",
+          "name": "shirokuma_35"
+        },
+        {
+          "id": " shirokuma_05 ",
+          "name": "shirokuma_05"
+        },
+        {
+          "id": " shirokuma_15 ",
+          "name": "shirokuma_15"
+        },
+        {
+          "id": " shirokuma_16 ",
+          "name": "shirokuma_16"
+        },
+        {
+          "id": " shirokuma_12 ",
+          "name": "shirokuma_12"
+        },
+        {
+          "id": " shirokuma_44 ",
+          "name": "shirokuma_44"
+        },
+        {
+          "id": " shirokuma_25 ",
+          "name": "shirokuma_25"
+        },
+        {
+          "id": " shirokuma_02 ",
+          "name": "shirokuma_02"
+        },
+        {
+          "id": " shirokuma_31 ",
+          "name": "shirokuma_31"
+        },
+        {
+          "id": " N5 ",
+          "name": "N5"
+        },
+        {
+          "id": " N3 ",
+          "name": "N3"
+        },
+        {
+          "id": " Expl ",
+          "name": "Expl"
+        },
+        {
+          "id": " N4 ",
+          "name": "N4"
+        },
+        {
+          "id": " N1 ",
+          "name": "N1"
+        },
+        {
+          "id": " N2 ",
+          "name": "N2"
+        }
+      ],
+      "noteTypes": [
+        {
+          "id": 1455531004306,
+          "name": "Kanji"
+        },
+        {
+          "id": 1525985463680,
+          "name": "Tango"
+        },
+        {
+          "id": 1342695665470,
+          "name": "Kana"
+        },
+        {
+          "id": "1546252838429",
+          "name": "Audio Mining"
+        },
+        {
+          "id": "1547687898933",
+          "name": "People"
+        },
+        {
+          "id": "1540365234350",
+          "name": "English"
+        },
+        {
+          "id": 1448098852224,
+          "name": "Japanese + subs2srs"
+        },
+        {
+          "id": 1342706442507,
+          "name": "Core 2000"
+        },
+        {
+          "id": "1566825364120",
+          "name": "Vocab Mining"
+        },
+        {
+          "id": "1567736204644",
+          "name": "Roleplay"
+        },
+        {
+          "id": 1459450892726,
+          "name": "Japanese jTest"
+        }
+      ],
+      "ready": true,
+      "loading": false
+    },
+    "result": {
+      "loading": false,
+      "ready": true,
+      "data": [
+        {
+          "period": "all",
+          "tags_ hiragana ": 2200,
+          "tags_ Attack_on_Titan_with_English_Translations_01 ": 3160,
+          "tags_ Attack_on_Titan_with_English_Translations_03 ": 3769,
+          "tags_ 単語N4 ": 16851,
+          "tags_ kanji ": 84879,
+          "tags_ 単語N5 ": 15636,
+          "tags_ kana ": 4636,
+          "tags_ custom ": 27,
+          "tags_ mining ": 4253,
+          "tags_ leech ": 7555,
+          "tags_ rtk3 ": 22800,
+          "tags_ reading ": 0,
+          "tags_ rtk1 ": 62079,
+          "tags_ Attack_on_Titan_with_English_Translations_02 ": 2542,
+          "tags_ katakana ": 2436,
+          "tags_ marked ": 0,
+          "tags_ Core2k ": 0,
+          "tags_ C2K ": 8626,
+          "tags_ shirokuma_09 ": 892,
+          "tags_ shirokuma_41 ": 20,
+          "tags_ shirokuma_36 ": 146,
+          "tags_ shirokuma_38 ": 247,
+          "tags_ shirokuma_14 ": 641,
+          "tags_ shirokuma_03 ": 791,
+          "tags_ shirokuma_34 ": 267,
+          "tags_ shirokuma_39 ": 45,
+          "tags_ shirokuma_32 ": 454,
+          "tags_ shirokuma_33 ": 208,
+          "tags_ shirokuma_47 ": 0,
+          "tags_ shirokuma_01 ": 909,
+          "tags_ shirokuma_18 ": 445,
+          "tags_ shirokuma_10 ": 637,
+          "tags_ shirokuma_19 ": 739,
+          "tags_ shirokuma_29 ": 433,
+          "tags_ shirokuma_40 ": 0,
+          "tags_ shirokuma_13 ": 486,
+          "tags_ shirokuma_42 ": 0,
+          "tags_ shirokuma_43 ": 0,
+          "tags_ shirokuma_24 ": 484,
+          "tags_ shirokuma_27 ": 593,
+          "tags_ shirokuma_07 ": 840,
+          "tags_ shirokuma_21 ": 444,
+          "tags_ shirokuma_50 ": 0,
+          "tags_ shirokuma_45 ": 0,
+          "tags_ shirokuma_23 ": 657,
+          "tags_ shirokuma_48 ": 0,
+          "tags_ shirokuma_46 ": 0,
+          "tags_ shirokuma_17 ": 520,
+          "tags_ shirokuma_22 ": 523,
+          "tags_ shirokuma_11 ": 825,
+          "tags_ shirokuma_04 ": 801,
+          "tags_ shirokuma_06 ": 637,
+          "tags_ shirokuma_49 ": 0,
+          "tags_ shirokuma_26 ": 716,
+          "tags_ shirokuma_28 ": 259,
+          "tags_ shirokuma_20 ": 556,
+          "tags_ shirokuma_30 ": 507,
+          "tags_ shirokuma_37 ": 152,
+          "tags_ shirokuma_08 ": 1107,
+          "tags_ shirokuma_35 ": 319,
+          "tags_ shirokuma_05 ": 685,
+          "tags_ shirokuma_15 ": 382,
+          "tags_ shirokuma_16 ": 871,
+          "tags_ shirokuma_12 ": 871,
+          "tags_ shirokuma_44 ": 0,
+          "tags_ shirokuma_25 ": 480,
+          "tags_ shirokuma_02 ": 1324,
+          "tags_ shirokuma_31 ": 312,
+          "tags_ N5 ": 0,
+          "tags_ N3 ": 0,
+          "tags_ Expl ": 0,
+          "tags_ N4 ": 0,
+          "tags_ N1 ": 0,
+          "tags_ N2 ": 0
+        }
+      ],
+      "query": {
+        "period": "all",
+        "select": {
+          "tags": true
+        },
+        "filter": {}
+      }
+    }
+  },
+  "months": {
+    "query": {
+      "period": "month",
+      "select": {
+        "decks": true
+      },
+      "filter": {}
+    },
+    "orm": {
+      "ready": true,
+      "loading": false
+    },
+    "info": {
+      "cards": 31449,
+      "revisions": 180530,
+      "notes": 28081,
+      "firstRevision": 1531157715051,
+      "lastRevision": 1588320007485,
+      "decks": [
+        {
+          "id": 1,
+          "name": "Reading::Polar Bear Cafe"
+        },
+        {
+          "id": 1546936345526,
+          "name": "Archive::Characters"
+        },
+        {
+          "id": 1538041629583,
+          "name": "Archive::Characters::Kana"
+        },
+        {
+          "id": 1541751897082,
+          "name": "Archive::Listening::Tango"
+        },
+        {
+          "id": 1547687579434,
+          "name": "Archive::English::People"
+        },
+        {
+          "id": 1540365075922,
+          "name": "Archive::English"
+        },
+        {
+          "id": 1546936319881,
+          "name": "Archive::Listening"
+        },
+        {
+          "id": 1545490736154,
+          "name": "Archive::Listening::Mining"
+        },
+        {
+          "id": 1531157365064,
+          "name": "Archive::Characters::RTK"
+        },
+        {
+          "id": 1550891190436,
+          "name": "Archive::English::Words"
+        },
+        {
+          "id": 1554127945700,
+          "name": "Reading"
+        },
+        {
+          "id": 1555657203726,
+          "name": "Reading::Attack on Titan"
+        },
+        {
+          "id": 1558608352288,
+          "name": "Archive::Listening::Core 2000"
+        },
+        {
+          "id": 1558716651885,
+          "name": "Reading::Mukashi"
+        },
+        {
+          "id": 1565506291638,
+          "name": "Archive"
+        },
+        {
+          "id": 1566825125898,
+          "name": "Reading::Mined Vocab"
+        },
+        {
+          "id": 1573008357367,
+          "name": "Reading::Harry Potter"
+        },
+        {
+          "id": 1579431384944,
+          "name": "Jtest4you"
+        },
+        {
+          "id": 1579431384945,
+          "name": "Jtest4you::N5"
+        },
+        {
+          "id": 1579431384952,
+          "name": "Jtest4you::N4"
+        },
+        {
+          "id": 1579431384974,
+          "name": "Jtest4you::N3"
+        },
+        {
+          "id": 1579431385001,
+          "name": "Jtest4you::N2"
+        },
+        {
+          "id": 1579431385044,
+          "name": "Jtest4you::N1"
+        }
+      ],
+      "tags": [
+        {
+          "id": " hiragana ",
+          "name": "hiragana"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_01 ",
+          "name": "Attack_on_Titan_with_English_Translations_01"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_03 ",
+          "name": "Attack_on_Titan_with_English_Translations_03"
+        },
+        {
+          "id": " 単語N4 ",
+          "name": "単語N4"
+        },
+        {
+          "id": " kanji ",
+          "name": "kanji"
+        },
+        {
+          "id": " 単語N5 ",
+          "name": "単語N5"
+        },
+        {
+          "id": " kana ",
+          "name": "kana"
+        },
+        {
+          "id": " custom ",
+          "name": "custom"
+        },
+        {
+          "id": " mining ",
+          "name": "mining"
+        },
+        {
+          "id": " leech ",
+          "name": "leech"
+        },
+        {
+          "id": " rtk3 ",
+          "name": "rtk3"
+        },
+        {
+          "id": " reading ",
+          "name": "reading"
+        },
+        {
+          "id": " rtk1 ",
+          "name": "rtk1"
+        },
+        {
+          "id": " Attack_on_Titan_with_English_Translations_02 ",
+          "name": "Attack_on_Titan_with_English_Translations_02"
+        },
+        {
+          "id": " katakana ",
+          "name": "katakana"
+        },
+        {
+          "id": " marked ",
+          "name": "marked"
+        },
+        {
+          "id": " Core2k ",
+          "name": "Core2k"
+        },
+        {
+          "id": " C2K ",
+          "name": "C2K"
+        },
+        {
+          "id": " shirokuma_09 ",
+          "name": "shirokuma_09"
+        },
+        {
+          "id": " shirokuma_41 ",
+          "name": "shirokuma_41"
+        },
+        {
+          "id": " shirokuma_36 ",
+          "name": "shirokuma_36"
+        },
+        {
+          "id": " shirokuma_38 ",
+          "name": "shirokuma_38"
+        },
+        {
+          "id": " shirokuma_14 ",
+          "name": "shirokuma_14"
+        },
+        {
+          "id": " shirokuma_03 ",
+          "name": "shirokuma_03"
+        },
+        {
+          "id": " shirokuma_34 ",
+          "name": "shirokuma_34"
+        },
+        {
+          "id": " shirokuma_39 ",
+          "name": "shirokuma_39"
+        },
+        {
+          "id": " shirokuma_32 ",
+          "name": "shirokuma_32"
+        },
+        {
+          "id": " shirokuma_33 ",
+          "name": "shirokuma_33"
+        },
+        {
+          "id": " shirokuma_47 ",
+          "name": "shirokuma_47"
+        },
+        {
+          "id": " shirokuma_01 ",
+          "name": "shirokuma_01"
+        },
+        {
+          "id": " shirokuma_18 ",
+          "name": "shirokuma_18"
+        },
+        {
+          "id": " shirokuma_10 ",
+          "name": "shirokuma_10"
+        },
+        {
+          "id": " shirokuma_19 ",
+          "name": "shirokuma_19"
+        },
+        {
+          "id": " shirokuma_29 ",
+          "name": "shirokuma_29"
+        },
+        {
+          "id": " shirokuma_40 ",
+          "name": "shirokuma_40"
+        },
+        {
+          "id": " shirokuma_13 ",
+          "name": "shirokuma_13"
+        },
+        {
+          "id": " shirokuma_42 ",
+          "name": "shirokuma_42"
+        },
+        {
+          "id": " shirokuma_43 ",
+          "name": "shirokuma_43"
+        },
+        {
+          "id": " shirokuma_24 ",
+          "name": "shirokuma_24"
+        },
+        {
+          "id": " shirokuma_27 ",
+          "name": "shirokuma_27"
+        },
+        {
+          "id": " shirokuma_07 ",
+          "name": "shirokuma_07"
+        },
+        {
+          "id": " shirokuma_21 ",
+          "name": "shirokuma_21"
+        },
+        {
+          "id": " shirokuma_50 ",
+          "name": "shirokuma_50"
+        },
+        {
+          "id": " shirokuma_45 ",
+          "name": "shirokuma_45"
+        },
+        {
+          "id": " shirokuma_23 ",
+          "name": "shirokuma_23"
+        },
+        {
+          "id": " shirokuma_48 ",
+          "name": "shirokuma_48"
+        },
+        {
+          "id": " shirokuma_46 ",
+          "name": "shirokuma_46"
+        },
+        {
+          "id": " shirokuma_17 ",
+          "name": "shirokuma_17"
+        },
+        {
+          "id": " shirokuma_22 ",
+          "name": "shirokuma_22"
+        },
+        {
+          "id": " shirokuma_11 ",
+          "name": "shirokuma_11"
+        },
+        {
+          "id": " shirokuma_04 ",
+          "name": "shirokuma_04"
+        },
+        {
+          "id": " shirokuma_06 ",
+          "name": "shirokuma_06"
+        },
+        {
+          "id": " shirokuma_49 ",
+          "name": "shirokuma_49"
+        },
+        {
+          "id": " shirokuma_26 ",
+          "name": "shirokuma_26"
+        },
+        {
+          "id": " shirokuma_28 ",
+          "name": "shirokuma_28"
+        },
+        {
+          "id": " shirokuma_20 ",
+          "name": "shirokuma_20"
+        },
+        {
+          "id": " shirokuma_30 ",
+          "name": "shirokuma_30"
+        },
+        {
+          "id": " shirokuma_37 ",
+          "name": "shirokuma_37"
+        },
+        {
+          "id": " shirokuma_08 ",
+          "name": "shirokuma_08"
+        },
+        {
+          "id": " shirokuma_35 ",
+          "name": "shirokuma_35"
+        },
+        {
+          "id": " shirokuma_05 ",
+          "name": "shirokuma_05"
+        },
+        {
+          "id": " shirokuma_15 ",
+          "name": "shirokuma_15"
+        },
+        {
+          "id": " shirokuma_16 ",
+          "name": "shirokuma_16"
+        },
+        {
+          "id": " shirokuma_12 ",
+          "name": "shirokuma_12"
+        },
+        {
+          "id": " shirokuma_44 ",
+          "name": "shirokuma_44"
+        },
+        {
+          "id": " shirokuma_25 ",
+          "name": "shirokuma_25"
+        },
+        {
+          "id": " shirokuma_02 ",
+          "name": "shirokuma_02"
+        },
+        {
+          "id": " shirokuma_31 ",
+          "name": "shirokuma_31"
+        },
+        {
+          "id": " N5 ",
+          "name": "N5"
+        },
+        {
+          "id": " N3 ",
+          "name": "N3"
+        },
+        {
+          "id": " Expl ",
+          "name": "Expl"
+        },
+        {
+          "id": " N4 ",
+          "name": "N4"
+        },
+        {
+          "id": " N1 ",
+          "name": "N1"
+        },
+        {
+          "id": " N2 ",
+          "name": "N2"
+        }
+      ],
+      "noteTypes": [
+        {
+          "id": 1455531004306,
+          "name": "Kanji"
+        },
+        {
+          "id": 1525985463680,
+          "name": "Tango"
+        },
+        {
+          "id": 1342695665470,
+          "name": "Kana"
+        },
+        {
+          "id": "1546252838429",
+          "name": "Audio Mining"
+        },
+        {
+          "id": "1547687898933",
+          "name": "People"
+        },
+        {
+          "id": "1540365234350",
+          "name": "English"
+        },
+        {
+          "id": 1448098852224,
+          "name": "Japanese + subs2srs"
+        },
+        {
+          "id": 1342706442507,
+          "name": "Core 2000"
+        },
+        {
+          "id": "1566825364120",
+          "name": "Vocab Mining"
+        },
+        {
+          "id": "1567736204644",
+          "name": "Roleplay"
+        },
+        {
+          "id": 1459450892726,
+          "name": "Japanese jTest"
+        }
+      ],
+      "ready": true,
+      "loading": false
+    },
+    "result": {
+      "loading": false,
+      "ready": true,
+      "data": [
+        {
+          "period": "2018-07",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 3647,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2018-08",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 5616,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2018-09",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 898,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 5935,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2018-10",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 1505,
+          "decks_1541751897082": 812,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 8633,
+          "decks_1550891190436": 62,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2018-11",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 633,
+          "decks_1541751897082": 4527,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 9595,
+          "decks_1550891190436": 176,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2018-12",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 286,
+          "decks_1541751897082": 5638,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 4353,
+          "decks_1550891190436": 375,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-01",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 329,
+          "decks_1541751897082": 6124,
+          "decks_1547687579434": 64,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 3215,
+          "decks_1550891190436": 155,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-02",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 136,
+          "decks_1541751897082": 4808,
+          "decks_1547687579434": 147,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 152,
+          "decks_1531157365064": 2545,
+          "decks_1550891190436": 110,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-03",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 113,
+          "decks_1541751897082": 3081,
+          "decks_1547687579434": 114,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 2130,
+          "decks_1531157365064": 5364,
+          "decks_1550891190436": 199,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 0,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-04",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 153,
+          "decks_1541751897082": 2113,
+          "decks_1547687579434": 67,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 1477,
+          "decks_1531157365064": 6079,
+          "decks_1550891190436": 221,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 1401,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 0,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-05",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 127,
+          "decks_1541751897082": 1607,
+          "decks_1547687579434": 107,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 572,
+          "decks_1531157365064": 7433,
+          "decks_1550891190436": 398,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 3798,
+          "decks_1558608352288": 3,
+          "decks_1558716651885": 383,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-06",
+          "decks_1": 0,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 73,
+          "decks_1541751897082": 1017,
+          "decks_1547687579434": 56,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 279,
+          "decks_1531157365064": 5182,
+          "decks_1550891190436": 244,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 1154,
+          "decks_1558608352288": 948,
+          "decks_1558716651885": 1372,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-07",
+          "decks_1": 343,
+          "decks_1546936345526": 21,
+          "decks_1538041629583": 54,
+          "decks_1541751897082": 701,
+          "decks_1547687579434": 46,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 160,
+          "decks_1531157365064": 3181,
+          "decks_1550891190436": 123,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 699,
+          "decks_1558608352288": 2138,
+          "decks_1558716651885": 1379,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-08",
+          "decks_1": 1074,
+          "decks_1546936345526": 113,
+          "decks_1538041629583": 43,
+          "decks_1541751897082": 554,
+          "decks_1547687579434": 58,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 85,
+          "decks_1531157365064": 2738,
+          "decks_1550891190436": 121,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 455,
+          "decks_1558608352288": 1811,
+          "decks_1558716651885": 476,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 41,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-09",
+          "decks_1": 1079,
+          "decks_1546936345526": 52,
+          "decks_1538041629583": 58,
+          "decks_1541751897082": 435,
+          "decks_1547687579434": 59,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 76,
+          "decks_1531157365064": 2676,
+          "decks_1550891190436": 108,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 418,
+          "decks_1558608352288": 1588,
+          "decks_1558716651885": 426,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 146,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-10",
+          "decks_1": 507,
+          "decks_1546936345526": 36,
+          "decks_1538041629583": 89,
+          "decks_1541751897082": 350,
+          "decks_1547687579434": 26,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 60,
+          "decks_1531157365064": 2756,
+          "decks_1550891190436": 94,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 351,
+          "decks_1558608352288": 816,
+          "decks_1558716651885": 356,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 65,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-11",
+          "decks_1": 1517,
+          "decks_1546936345526": 17,
+          "decks_1538041629583": 63,
+          "decks_1541751897082": 266,
+          "decks_1547687579434": 30,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 5,
+          "decks_1531157365064": 2548,
+          "decks_1550891190436": 77,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 271,
+          "decks_1558608352288": 576,
+          "decks_1558716651885": 330,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 58,
+          "decks_1573008357367": 138,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2019-12",
+          "decks_1": 2241,
+          "decks_1546936345526": 26,
+          "decks_1538041629583": 68,
+          "decks_1541751897082": 288,
+          "decks_1547687579434": 22,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 2658,
+          "decks_1550891190436": 98,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 284,
+          "decks_1558608352288": 521,
+          "decks_1558716651885": 292,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 44,
+          "decks_1573008357367": 42,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2020-01",
+          "decks_1": 3308,
+          "decks_1546936345526": 9,
+          "decks_1538041629583": 8,
+          "decks_1541751897082": 166,
+          "decks_1547687579434": 24,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 1497,
+          "decks_1550891190436": 54,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 218,
+          "decks_1558608352288": 225,
+          "decks_1558716651885": 244,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 28,
+          "decks_1573008357367": 35,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2020-02",
+          "decks_1": 3079,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 7,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 0,
+          "decks_1550891190436": 46,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 148,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 195,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 26,
+          "decks_1573008357367": 19,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2020-03",
+          "decks_1": 4323,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 0,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 146,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 216,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 20,
+          "decks_1573008357367": 29,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2020-04",
+          "decks_1": 4615,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 0,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 116,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 161,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 23,
+          "decks_1573008357367": 12,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        },
+        {
+          "period": "2020-05",
+          "decks_1": 139,
+          "decks_1546936345526": 0,
+          "decks_1538041629583": 0,
+          "decks_1541751897082": 0,
+          "decks_1547687579434": 0,
+          "decks_1540365075922": 0,
+          "decks_1546936319881": 0,
+          "decks_1545490736154": 0,
+          "decks_1531157365064": 0,
+          "decks_1550891190436": 0,
+          "decks_1554127945700": 0,
+          "decks_1555657203726": 12,
+          "decks_1558608352288": 0,
+          "decks_1558716651885": 5,
+          "decks_1565506291638": 0,
+          "decks_1566825125898": 0,
+          "decks_1573008357367": 0,
+          "decks_1579431384944": 0,
+          "decks_1579431384945": 0,
+          "decks_1579431384952": 0,
+          "decks_1579431384974": 0,
+          "decks_1579431385001": 0,
+          "decks_1579431385044": 0
+        }
+      ],
+      "query": {
+        "period": "month",
+        "select": {
+          "decks": true
+        },
+        "filter": {}
+      }
+    }
+  }
+}
