@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import Cards from "./cards";
 
-@Entity()
+@Entity({ name: "notes" })
 export default class Notes {
   @PrimaryGeneratedColumn({ name: "id" })
   id: number;

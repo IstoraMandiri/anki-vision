@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColum
 import Revlog from "./revlog";
 import Notes from "./notes";
 
-@Entity()
+@Entity({ name: "cards" })
 export default class Cards {
   @PrimaryGeneratedColumn({ name: "id" })
   id: number;

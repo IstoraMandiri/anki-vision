@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "node patch.js && next build && next export",
     "start": "npm run dev"
   },
   "dependencies": {
@@ -15,7 +15,6 @@
     "@nivo/line": "^0.61.1",
     "@nivo/pie": "^0.61.1",
     "antd": "^4.2.0",
-    "copy-webpack-plugin": "^5.1.1",
     "dexie": "^2.0.4",
     "next": "9.3.6",
     "react": "16.13.1",
@@ -35,6 +34,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-typescript-metadata": "^0.3.0",
+    "copy-webpack-plugin": "^5.1.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",

@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne } from "typeorm";
 import Cards from "./cards";
 
-@Entity()
+@Entity({ name: "revlog" })
 export default class Revlog {
   @PrimaryGeneratedColumn({ name: "id" })
   id: number;
