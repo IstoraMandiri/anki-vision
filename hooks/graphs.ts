@@ -37,7 +37,6 @@ export default function useGraphs({ query, result, info }): [any, any] {
 
   const { Comp, transform } = graphTypes[graph.type];
   const data = result.ready && transform(result, info);
-  console.log("got data", data);
 
   return [{ Comp, data, type: graph.type, graphTypes }, setGraph];
 }

@@ -1,32 +1,38 @@
+import { Spin } from "antd";
+
 import Json from "./Json";
 import useQueryBuilder from "../hooks/query";
 import BuildQuery from "./BuildQuery";
 import GraphRenderer from "./GraphRenderer";
 
-import testState from "../utils/test.json";
-const { all, months } = testState;
-
-const test = () => <GraphRenderer state={months} />;
+import FileImport from "./FileImport";
+import Welcome from "./Welcome";
+import Wrapper from "./Wrapper";
 
 const Dashboard = () => {
   const [state, actions] = useQueryBuilder();
   if (!state.orm.loading && !state.orm.ready) {
-    return <input type="file" onChange={actions.handleFileSelect} />;
+    return (
+      <Wrapper>
+        <Welcome>
+          <FileImport onChange={actions.handleFileSelect} />
+        </Welcome>
+      </Wrapper>
+    );
   }
   if (state.info.loading) {
-    return <>Loading</>;
+    return (
+      <Wrapper>
+        <Spin size="large" />
+      </Wrapper>
+    );
   }
   return (
     <>
-      <div>
-        <BuildQuery state={state} actions={actions} />
-        <GraphRenderer state={state} />
-        {/* <Json state={state} /> */}
-      </div>
+      <GraphRenderer state={state} actions={actions} />
+      {/* <Json state={state} /> */}
     </>
   );
 };
 
 export default Dashboard;
-
-// export default test

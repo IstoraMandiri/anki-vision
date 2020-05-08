@@ -1,9 +1,10 @@
+import Layout from "../components/Layout";
 import Dashboard from "../components/Dashboard";
 
 const App = () => (
-  <div className="container">
+  <Layout>
     <Dashboard />
-  </div>
+  </Layout>
 );
 
 export default App;

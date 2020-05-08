@@ -4,9 +4,9 @@ const db = new Dexie("anki-stats-db") as any;
 
 db.version(1).stores({ data: "id" });
 
-export function loadFile(e) {
+export function loadFile(file) {
   return new Promise((resolve) => {
-    const f = e.target.files[0];
+    const f = file[0];
     const r = new FileReader() as any;
     r.onload = async () => {
       const buffer = new Uint8Array(r.result);

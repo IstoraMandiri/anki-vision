@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "@nivo/bar": "^0.61.1",
     "@nivo/bump": "^0.61.1",
@@ -24,6 +25,7 @@
     "next": "9.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-dropzone": "^11.0.1",
     "react-virtualized-auto-sizer": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "replace": "^1.2.0",
