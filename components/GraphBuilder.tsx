@@ -7,6 +7,7 @@ import DropdownSelect from "./Dropdown";
 import { selects } from "../utils/selects";
 import { objectify } from "../utils/transforms";
 import { Button } from "antd";
+
 const selectors = Object.keys(selects).map((id) => ({ ...selects[id], id }));
 
 const BuildQuery = ({ state, actions, graph, setGraph }) => {
@@ -15,8 +16,8 @@ const BuildQuery = ({ state, actions, graph, setGraph }) => {
   const { graphTypes, type } = graph;
   return (
     <>
-      <h3>Presets</h3>
-      <p>Don't forget the presets!</p>
+      <h3>Select Query</h3>
+      <p>Custom Query...</p>
       <h3>Custom Query</h3>
       <MultiSelect
         name="Selectors"

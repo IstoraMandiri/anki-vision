@@ -2,7 +2,7 @@ import { Spin } from "antd";
 
 import Json from "./Json";
 import useQueryBuilder from "../hooks/query";
-import BuildQuery from "./BuildQuery";
+
 import GraphRenderer from "./GraphRenderer";
 
 import FileImport from "./FileImport";
