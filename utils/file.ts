@@ -25,3 +25,7 @@ export async function getSavedFile() {
     return false;
   }
 }
+
+export async function clear() {
+  await db.data.where("id").equals(1).delete();
+}

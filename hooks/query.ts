@@ -10,7 +10,7 @@ const defaultQuery: Query = {
 };
 
 export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
-  const [orm, { handleFileSelect }] = useOrm();
+  const [orm, { handleFileSelect, reset }] = useOrm();
   const [info, setInfo] = useState({ loading: true, ready: false });
   const [query, setQuery] = useState(defaultQuery);
   const [result, setResult] = useState({ loading: false, ready: false } as Result);
@@ -41,22 +41,26 @@ export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
     if (q) {
       setQuery(q);
     }
-    const transformed = { ...(q || query) };
+    const original = q || query;
+    // deep copy
+    const transformed = JSON.parse(JSON.stringify(original));
     // if decks, noteTypes or tags are filtered, add them to selection...
     ["decks", "noteTypes", "tags"].forEach((k) => {
-      if (query.select[k] && query.filter[k]) {
-        transformed.select[k] = query.filter[k];
+      if (original.select[k] && Object.values(original.filter[k] || {}).find((i) => i)) {
+        transformed.select[k] = original.filter[k];
       }
     });
     await tick(500); // force it to re-render before blocking thread
     const data = await getRevisions({ query: transformed, info });
-    setResult({ loading: false, ready: true, data, query: transformed });
+    const error = data.length === 0;
+    setResult({ loading: false, ready: true, error, data, query: transformed });
   }
 
   const actions = {
     handleFileSelect,
     updateQuery,
     runQuery,
+    reset,
   };
 
   return [{ query, orm, info, result }, actions];

@@ -1,12 +1,14 @@
 import { createConnection } from "typeorm";
 import { useState, useRef, useEffect } from "react";
-import { getSavedFile, loadFile } from "../utils/file";
-import Cache from "../utils/cache";
 
+import { getSavedFile, loadFile, clear } from "../utils/file";
+
+import Cache from "../utils/cache";
 import Revlog from "../schema/revlog";
 import Cards from "../schema/cards";
 import Col from "../schema/col";
 import Notes from "../schema/notes";
+import tick from "../utils/tick";
 
 export default function useOrm(): [OrmState, OrmActions] {
   const [state, setState] = useState({ ready: false, loading: true });
@@ -44,8 +46,15 @@ export default function useOrm(): [OrmState, OrmActions] {
     connect(await loadFile(e));
   }
 
+  async function reset() {
+    await clear();
+    await connection.current.close();
+    setState({ ready: false, loading: false });
+  }
+
   const actions = {
     handleFileSelect,
+    reset,
   };
 
   return [state, actions];

@@ -76,9 +76,8 @@ const BuildQuery = ({ state, actions, graph, setGraph, setShowMenu }) => {
           runQuery();
         }}
       >
-        Run Custom Query
+        Run Query
       </Button>
-      <Json query={query} />
     </>
   );
 };

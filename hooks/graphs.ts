@@ -36,7 +36,7 @@ export default function useGraphs({ query, result, info }): [any, any] {
   const [graph, setGraph] = useState({ type: "line" });
 
   const { Comp, transform } = graphTypes[graph.type];
-  const data = result.ready && transform(result, info);
+  const data = result.ready && !result.error && transform(result, info);
 
   return [{ Comp, data, type: graph.type, graphTypes }, setGraph];
 }

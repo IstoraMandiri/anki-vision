@@ -29,7 +29,7 @@ const MultiSelect = ({ name, items, onChange, color = "none", selected = [] }) =
       value={selected}
       tagRender={color !== "none" && ((props) => renderTag(props, color))}
       onChange={onChange}
-      style={{ width: "100%" }}
+      style={{ width: "100%", overflow: "hidden" }}
     >
       {items.map(renderOption)}
     </Select>

@@ -21,6 +21,7 @@ interface OrmState {
 
 interface OrmActions {
   handleFileSelect: (f: any) => Promise<void>;
+  reset: () => Promise<void>;
 }
 
 interface QueryBuilderInfo extends Partial<CollectionInfo> {
@@ -73,8 +74,7 @@ interface Query {
   limit?: number;
 }
 
-interface QueryBuilderActions {
-  handleFileSelect: (f: any) => Promise<void>;
+interface QueryBuilderActions extends OrmActions {
   updateQuery: ({ type: string, field: string, id: string, value: any }) => void;
   runQuery: (q: ?Query) => void;
 }
@@ -82,6 +82,7 @@ interface QueryBuilderActions {
 interface Result {
   ready: boolean;
   loading: boolean;
+  error?: boolean;
   data: any[];
   query: Query;
 }

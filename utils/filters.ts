@@ -20,7 +20,7 @@ function split(items, { add, not }) {
   }
 }
 
-function fuzz(q, to, items, operator) {
+function fuzz(q, to, items, operator, type) {
   q = q.andWhere(
     new Brackets((qb) => {
       const [first, ...rest] = items;
@@ -28,7 +28,7 @@ function fuzz(q, to, items, operator) {
       let q2 = qb.where(`${to} ${operator} :${i}`, { [i]: `%${first}%` });
       rest.forEach((item) => {
         const i = c.c();
-        q2 = q2.orWhere(`${to} ${operator} :${i}`, { [i]: `%${item}%` });
+        q2 = q2[type](`${to} ${operator} :${i}`, { [i]: `%${item}%` });
       });
     })
   );
@@ -45,8 +45,8 @@ const fns = {
   },
   fuzzy: (q, items, to) => {
     split(items, {
-      add: (i) => fuzz(q, to, i, "LIKE"),
-      not: (i) => fuzz(q, to, i, "NOT LIKE"),
+      add: (i) => fuzz(q, to, i, "LIKE", "orWhere"),
+      not: (i) => fuzz(q, to, i, "NOT LIKE", "andWhere"),
     });
   },
   array: (q, items, to) => {

@@ -1,11 +1,6 @@
-import Layout from "../components/Layout";
 import Dashboard from "../components/Dashboard";
 
-const App = () => (
-  <Layout>
-    <Dashboard />
-  </Layout>
-);
+const App = () => <Dashboard />;
 
 // import testState from "../utils/test.json";
 // import GraphRenderer from "../components/GraphRenderer";
