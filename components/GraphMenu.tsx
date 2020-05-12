@@ -11,24 +11,35 @@ const GraphMenu = (props) => {
       <div
         style={{
           position: "absolute",
-          zIndex: 2,
-          top: 10,
-          right: 10,
-          maxWidth: "50%",
-          background: "rgba(255,255,255,.8)",
-          border: "1px solid rgba(0,0,0,0.1)",
+          zIndex: 3,
+          right: 0,
+          top: 0,
+          lineHeight: "1rem",
+          opacity: "0.5",
         }}
       >
-        <div style={{ position: "absolute", right: 0, top: 0, lineHeight: "1rem", opacity: "0.5" }}>
-          {showMenu && <RightSquareFilled onClick={() => setShowMenu(false)} />}
-          {!showMenu && <LeftSquareFilled onClick={() => setShowMenu(true)} />}
-        </div>
-        {showMenu && (
-          <div style={{ margin: "10px" }}>
-            <GraphBuilder {...props} />
-          </div>
-        )}
+        {showMenu && <RightSquareFilled onClick={() => setShowMenu(false)} />}
+        {!showMenu && <LeftSquareFilled onClick={() => setShowMenu(true)} />}
       </div>
+      {showMenu && (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 2,
+            top: 15,
+            right: 15,
+            width: "500px",
+            maxWidth: "90%",
+            background: "rgba(255,255,255,.9)",
+            border: "1px solid rgba(0,0,0,0.1)",
+            maxHeight: "90%",
+            overflowY: "scroll",
+            padding: "10px",
+          }}
+        >
+          <GraphBuilder setShowMenu={setShowMenu} {...props} />
+        </div>
+      )}
     </>
   );
 };

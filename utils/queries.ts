@@ -59,6 +59,7 @@ export async function getRevisions({ query, info }) {
     .leftJoin("revision.card", "card")
     .leftJoin("card.note", "note")
     .select(timeStr, "period");
+  // .addSelect("MIN(revision.id)", "timestamp");
 
   applySelects(q, query.select, info);
   applyFilters(q, query.filter);

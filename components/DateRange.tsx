@@ -9,6 +9,7 @@ const DateRange = ({ start, end, onChange }) => {
   return (
     <RangePicker
       allowClear
+      style={{ width: "100%" }}
       allowEmpty={[true, true]}
       defaultPickerValue={[s, e]}
       disabledDate={(current) => current.isBefore(s) || current.isAfter(e)}

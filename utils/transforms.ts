@@ -4,8 +4,11 @@ const i18n = {
   noteTypes: "Note: ",
 };
 
-export function objectify(arr) {
-  return arr.reduce((o, i) => ({ ...o, [i.key]: true }), {});
+export function arrayify(obj, values) {
+  return Object.keys(obj).map((k) => values.find((v) => v.id === k));
+}
+export function objectify(arr, bool = true) {
+  return arr.reduce((o, i) => ({ ...o, [i.key || i]: bool }), {});
 }
 
 function mapNames(data, info) {
