@@ -17,7 +17,7 @@ export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
   const [query, setQuery] = useState(defaultQuery);
   const [result, setResult] = useState({ loading: false, ready: false } as Result);
   const [presets, setPresets] = useState({ selected: null, available: defaultPresets } as Presets);
-  const [_graph, _setGraph] = useState({ type: "calendar" });
+  const [_graph, _setGraph] = useState({ type: "line" });
 
   // TODO move up to ORM
   useEffect(() => {
