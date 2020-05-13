@@ -1,5 +1,5 @@
 import { Spin } from "antd";
-import useGraphs from "../hooks/graphs";
+
 import Wrapper from "./Wrapper";
 import GraphMenu from "./GraphMenu";
 import Graph from "./Graph";
@@ -8,12 +8,13 @@ import Warning from "./Warning";
 const GraphRenderer = ({ state, actions }) => {
   const {
     result: { loading, error },
+    Comp,
+    data,
+    graph,
   } = state;
-  const [graph, setGraph] = useGraphs(state);
-  const { Comp, data } = graph;
   return (
     <>
-      <GraphMenu {...{ graph, setGraph, state, actions }} />
+      <GraphMenu {...{ state, actions }} />
       {loading && (
         <Wrapper>
           <Spin size="large" />

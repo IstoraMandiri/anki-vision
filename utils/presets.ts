@@ -1,5 +1,5 @@
 export default {
-  0: {
+  pieAllTags: {
     name: "Pie Chart: All Tags",
     data: {
       query: {
@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-  1: {
+  lineAllDecks: {
     name: "Line Chart: All Decks",
     data: {
       query: {

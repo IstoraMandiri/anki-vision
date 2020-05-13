@@ -62,9 +62,9 @@ interface QuerySelect {
   review?: boolean;
   relearn?: boolean;
   cram?: boolean;
-  decks?: { [k: string]: boolean };
-  noteTypes?: { [k: string]: boolean };
-  tags?: { [k: string]: boolean };
+  decks?: boolean | { [k: string]: boolean };
+  noteTypes?: boolean | { [k: string]: boolean };
+  tags?: boolean | { [k: string]: boolean };
 }
 
 interface Query {
@@ -77,6 +77,8 @@ interface Query {
 interface QueryBuilderActions extends OrmActions {
   updateQuery: ({ type: string, field: string, id: string, value: any }) => void;
   runQuery: (q: ?Query) => void;
+  setGraph: (d: any) => void;
+  usePreset: (d: any) => void;
 }
 
 interface Result {
@@ -87,9 +89,30 @@ interface Result {
   query: Query;
 }
 
+interface Graph {}
+
+interface Preset {
+  name: string;
+  data: {
+    query: Query;
+    graph: Graph;
+  };
+}
+
+interface Presets {
+  selected: null | string;
+  available: {
+    [k: string]: Preset;
+  };
+}
+
 interface QueryBuilderState {
   query: Query;
   info: QueryBuilderInfo;
   result: Result;
   orm: OrmState;
+  presets: Presets;
+  Comp: Component;
+  data: {};
+  graph: Graph;
 }

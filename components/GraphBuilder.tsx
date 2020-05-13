@@ -7,22 +7,18 @@ import DropdownSelect from "./Dropdown";
 import { selects } from "../utils/selects";
 import { objectify } from "../utils/transforms";
 import { Button, Divider, Row, Col, Space } from "antd";
-import QueryPresets from "./QueryPresets";
 import FilterSelect from "./FilterSelect";
 
 const selectors = Object.keys(selects).map((id) => ({ ...selects[id], id }));
 
-const BuildQuery = ({ state, actions, graph, setGraph, setShowMenu, showMenu }) => {
-  const { info, query } = state;
-  const { updateQuery, runQuery } = actions;
-  const { graphTypes, type } = graph;
-  if (!showMenu) {
-    return null;
-  }
+const BuildQuery = ({ state, actions, setShowMenu, showMenu }) => {
+  const { info, query, presets, graphs, graph } = state;
+  const { updateQuery, runQuery, usePreset, setGraph } = actions;
   return (
     <div
       style={{
         position: "absolute",
+        display: !showMenu && "none",
         zIndex: 2,
         top: 15,
         right: 15,
@@ -47,17 +43,16 @@ const BuildQuery = ({ state, actions, graph, setGraph, setShowMenu, showMenu }) 
           }}
         >
           <Divider orientation="left">Presets</Divider>
-          <QueryPresets
-            onChange={({ query, graph }) => {
-              setShowMenu(false);
-              setGraph(graph);
-              runQuery(query);
-            }}
+          <DropdownSelect
+            selected={presets.selected}
+            defaultText="Select Preset"
+            items={presets.available}
+            onChange={usePreset}
           />
           <Divider orientation="left">Graph Settings</Divider>
           <DropdownSelect
-            items={graphTypes}
-            selected={type}
+            items={graphs}
+            selected={graph.type}
             onChange={(type) => setGraph({ type })}
           />
           <Divider orientation="left">Data</Divider>
@@ -111,6 +106,7 @@ const BuildQuery = ({ state, actions, graph, setGraph, setShowMenu, showMenu }) 
       >
         Run Query
       </Button>
+      {/* <Json presets={presets} /> */}
     </div>
   );
 };
