@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+
 import { QueryResultCache } from "typeorm/cache/QueryResultCache";
 
 export default class CustomQueryResultCache implements QueryResultCache {
@@ -13,7 +15,9 @@ export default class CustomQueryResultCache implements QueryResultCache {
 
   async getFromCache({ query }) {
     const result = this.cache[query];
-    return result ? { identifier: "", query, duration: Infinity, result } : undefined;
+    return result
+      ? { identifier: "", query, duration: Infinity, result }
+      : undefined;
   }
 
   async storeInCache(props) {

@@ -1,15 +1,21 @@
 import Dashboard from "../components/Dashboard";
 
 const App = () => <Dashboard />;
+export default App;
 
-// import testState from "../utils/test.json";
-// import GraphRenderer from "../components/GraphRenderer";
-// const { all, months } = testState;
+// import Layout from "../components/Layout";
+
+// import testState from "../utils/test2.json";
+// import Line from "../components/charts/Line";
+// import Wrapper from "../components/Wrapper";
+// const { line2: test } = testState;
 
 // const App = () => (
 //   <Layout>
-//     <GraphRenderer state={months} actions={{}} />
+//     <div style={{ height: "700px" }}>
+//       <Line data={test.data} />
+//     </div>
 //   </Layout>
 // );
 
-export default App;
+// export default App;

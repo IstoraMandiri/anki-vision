@@ -7,7 +7,11 @@ const fns = {
   },
   many(q, key, params, info, options) {
     info[key].forEach(({ id }) => {
-      if (options === true || Object.keys(options).length === 0 || options[id]) {
+      if (
+        options === true ||
+        Object.keys(options).length === 0 ||
+        options[id]
+      ) {
         fns.case(q, `${key}_${id}`, `${params} = ${id}`);
       }
     });
@@ -44,7 +48,11 @@ export const selects: QueryConfig = {
   time: { type: "sum", name: "Time Taken" },
   right: { type: "case", params: "revision.ease != 1", name: "Right" },
   wrong: { type: "case", params: "revision.ease = 1", name: "Wrong" },
-  hard: { type: "case", params: "(revision.type = 1 AND revision.ease = 2)", name: "Hard" },
+  hard: {
+    type: "case",
+    params: "(revision.type = 1 AND revision.ease = 2)",
+    name: "Hard",
+  },
   // TODO check these are correct
   ok: {
     type: "case",

@@ -1,7 +1,12 @@
 import { Menu, Dropdown, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
-const DropdownSelect = ({ items: _items, selected, defaultText = "Select", onChange }) => {
+const DropdownSelect = ({
+  items: _items,
+  selected,
+  defaultText = "Select",
+  onChange,
+}) => {
   const items = Object.keys(_items).map((id) => ({ ..._items[id], id }));
   return (
     <>
@@ -22,7 +27,8 @@ const DropdownSelect = ({ items: _items, selected, defaultText = "Select", onCha
         }
       >
         <Button>
-          {(_items[selected] && (_items[selected].name || selected)) || defaultText}
+          {(_items[selected] && (_items[selected].name || selected)) ||
+            defaultText}
           <DownOutlined />
         </Button>
       </Dropdown>

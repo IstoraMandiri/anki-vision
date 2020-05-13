@@ -29,4 +29,19 @@ export default {
       },
     },
   },
+  calendarTime: {
+    name: "Calendar: Time Taken",
+    data: {
+      query: {
+        period: "day",
+        filter: {},
+        select: {
+          time: true,
+        },
+      },
+      graph: {
+        type: "calendar",
+      },
+    },
+  },
 };

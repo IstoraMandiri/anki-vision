@@ -11,17 +11,24 @@ export function objectify(arr, bool = true) {
   return arr.reduce((o, i) => ({ ...o, [i.key || i]: bool }), {});
 }
 
+export function formatTimes(data) {
+  return data.map();
+}
+
 function mapNames(data, info) {
   return data.map((item) => {
     return Object.keys(item)
       .map((i) => {
         const val = item[i];
         let key = i;
-        const match = ["tags", "decks", "noteTypes"].find((type) => i.startsWith(`${type}_`));
+        const match = ["tags", "decks", "noteTypes"].find((type) =>
+          i.startsWith(`${type}_`)
+        );
         if (match) {
           const [type, ..._id] = i.split("_");
           const f = _id.join("_");
-          const { name: _name } = info[match].find((i) => `${i.id}` === f) || {};
+          const { name: _name } =
+            info[match].find((i) => `${i.id}` === f) || {};
           key = `${i18n[type] || type}${_name || _id}`;
         }
         return { key, val };
@@ -59,12 +66,25 @@ function rank(series) {
   }));
 }
 
-export function lineTransform({ data }, info) {
+export function lineTransform({ data, query }, info) {
+  if (data.length <= 1) {
+    return {
+      error:
+        "The query did not return enough time periods to render. Please reduce the period (e.g. Yearly -> Monthly).",
+    };
+  }
   const named = mapNames(data, info);
   return createSeries(named);
 }
 
 export function barTransform({ data }, info) {
+  if (data.length <= 1) {
+    return {
+      error:
+        "The query did not return enough time periods to render. Please reduce the period (e.g. Yearly -> Monthly).",
+    };
+  }
+
   const named = mapNames(data, info);
   const keys = Object.keys(named[0]).filter((k) => k !== "period");
   return { keys, data: named };
@@ -75,13 +95,16 @@ export function calendarTransform({ data, query }) {
     return { error: 'This graph must use the "Day" time period setting.' };
   }
   if (Object.keys(data[0]).length != 2) {
-    console.log(Object.keys(data));
     return {
-      error: "This graph must only return one data series. Please limit your search to one item.",
+      error:
+        "This graph must only return one data series. Please limit your search to one item.",
     };
   }
   const key = Object.keys(data[0])[1];
-  const res = data.map((i) => ({ day: i.period, value: i[key] }));
+  const res = data.map((i) => ({
+    day: i.period.toISOString().slice(0, 10),
+    value: i[key],
+  }));
   const { day: first } = res[0];
   const { day: last } = res[res.length - 1];
   return { data: res, first, last };
@@ -89,7 +112,7 @@ export function calendarTransform({ data, query }) {
 
 export function pieTransform({ data, query }, info) {
   if (query.period !== "all") {
-    return null;
+    return { error: 'The time period for pie charts must be set to "All".' };
   }
   const [named] = mapNames(data, info);
   const keys = Object.keys(named).filter((k) => k !== "period");
@@ -99,6 +122,13 @@ export function pieTransform({ data, query }, info) {
 }
 
 export function bumpTransform({ data }, info) {
+  if (data.length <= 1) {
+    return {
+      error:
+        "The query did not return enough time periods to render. Please reduce the period (e.g. Yearly -> Monthly).",
+    };
+  }
+
   const named = mapNames(data, info);
   const series = createSeries(named);
   const ranked = rank(series);

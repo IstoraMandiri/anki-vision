@@ -23,9 +23,13 @@ const FilterSelect = ({ text, id, info, query, updateQuery }) => {
           name={`Include ${text}`}
           color="green"
           items={info[id]}
-          selected={Object.keys(query.filter[id] || {}).filter((k) => query.filter[id][k] === true)}
+          selected={Object.keys(query.filter[id] || {}).filter(
+            (k) => query.filter[id][k] === true
+          )}
           onChange={(items) =>
-            updateQuery({ filter: { [id]: mergeFilters(items, query.filter[id], true) } })
+            updateQuery({
+              filter: { [id]: mergeFilters(items, query.filter[id], true) },
+            })
           }
         />
       </Col>
@@ -38,7 +42,9 @@ const FilterSelect = ({ text, id, info, query, updateQuery }) => {
             (k) => query.filter[id][k] === false
           )}
           onChange={(items) =>
-            updateQuery({ filter: { [id]: mergeFilters(items, query.filter[id], false) } })
+            updateQuery({
+              filter: { [id]: mergeFilters(items, query.filter[id], false) },
+            })
           }
         />
       </Col>

@@ -18,7 +18,9 @@ const MainMenu = ({ actions, state }) => {
         }}
       >
         {showMenu && <DownSquareFilled onClick={() => setShowMenu(false)} />}
-        {!showMenu && <UpSquareFilled onPointerEnter={() => setShowMenu(true)} />}
+        {!showMenu && (
+          <UpSquareFilled onPointerEnter={() => setShowMenu(true)} />
+        )}
       </div>
       {showMenu && (
         <div

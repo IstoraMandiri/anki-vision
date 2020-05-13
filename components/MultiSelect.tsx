@@ -20,7 +20,13 @@ function renderTag(props, color) {
   );
 }
 
-const MultiSelect = ({ name, items, onChange, color = "none", selected = [] }) => {
+const MultiSelect = ({
+  name,
+  items,
+  onChange,
+  color = "none",
+  selected = [],
+}) => {
   return (
     <Select
       allowClear

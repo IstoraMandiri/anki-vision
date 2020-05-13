@@ -10,7 +10,12 @@ import Notes from "../schema/notes";
 
 async function first(Repo, field) {
   return (
-    await getRepository(Repo).createQueryBuilder().select(field).orderBy(field).limit(1).getRawOne()
+    await getRepository(Repo)
+      .createQueryBuilder()
+      .select(field)
+      .orderBy(field)
+      .limit(1)
+      .getRawOne()
   )[field];
 }
 
@@ -26,8 +31,12 @@ async function last(Repo, field) {
 }
 
 async function count(Repo): Promise<number> {
-  return (await getRepository(Repo).createQueryBuilder().select("COUNT(*)", "count").getRawOne())
-    .count;
+  return (
+    await getRepository(Repo)
+      .createQueryBuilder()
+      .select("COUNT(*)", "count")
+      .getRawOne()
+  ).count;
 }
 
 export async function getCollectionInfo() {
@@ -66,7 +75,12 @@ export async function getRevisions({ query, info }) {
 
   q = q.groupBy(timeStr).limit(limit).cache(true);
 
-  const res = await q.getRawMany();
+  const res = (await q.getRawMany()).map((r) => ({
+    ...r,
+    period: new Date(r.period),
+  }));
+  // console.log(res);
+  // transform period into JS
 
   return res;
 }

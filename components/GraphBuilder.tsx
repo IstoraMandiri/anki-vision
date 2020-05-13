@@ -1,4 +1,3 @@
-import Json from "./Json";
 import MultiSelect from "./MultiSelect";
 import DateRange from "./DateRange";
 import { periods } from "../utils/periods";
@@ -6,7 +5,7 @@ import DropdownSelect from "./Dropdown";
 
 import { selects } from "../utils/selects";
 import { objectify } from "../utils/transforms";
-import { Button, Divider, Row, Col, Space } from "antd";
+import { Button, Divider, Row, Col } from "antd";
 import FilterSelect from "./FilterSelect";
 
 const selectors = Object.keys(selects).map((id) => ({ ...selects[id], id }));
@@ -39,7 +38,8 @@ const BuildQuery = ({ state, actions, setShowMenu, showMenu }) => {
             overflowY: "scroll",
             overflowX: "visible",
             padding: "0 10px 20px 10px",
-            WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 90%, transparent 100%)",
           }}
         >
           <Divider orientation="left">Presets</Divider>
@@ -90,9 +90,21 @@ const BuildQuery = ({ state, actions, setShowMenu, showMenu }) => {
             </Col>
           </Row>
           <Divider orientation="left">Filters</Divider>
-          <FilterSelect text="Tags" id="tags" {...{ query, info, updateQuery }} />
-          <FilterSelect text="Decks" id="decks" {...{ query, info, updateQuery }} />
-          <FilterSelect text="Note Types" id="noteTypes" {...{ query, info, updateQuery }} />
+          <FilterSelect
+            text="Tags"
+            id="tags"
+            {...{ query, info, updateQuery }}
+          />
+          <FilterSelect
+            text="Decks"
+            id="decks"
+            {...{ query, info, updateQuery }}
+          />
+          <FilterSelect
+            text="Note Types"
+            id="noteTypes"
+            {...{ query, info, updateQuery }}
+          />
         </div>
       </div>
       <Button

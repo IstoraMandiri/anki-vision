@@ -19,7 +19,9 @@ const GraphMenu = (props) => {
         }}
       >
         {showMenu && <RightSquareFilled onClick={() => setShowMenu(false)} />}
-        {!showMenu && <LeftSquareFilled onPointerEnter={() => setShowMenu(true)} />}
+        {!showMenu && (
+          <LeftSquareFilled onPointerEnter={() => setShowMenu(true)} />
+        )}
       </div>
       <GraphBuilder showMenu={showMenu} setShowMenu={setShowMenu} {...props} />
     </>

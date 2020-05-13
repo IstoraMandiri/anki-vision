@@ -1,9 +1,10 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect } from "react";
 import tick from "../utils/tick";
 import useOrm from "./orm";
 import { getCollectionInfo, getRevisions } from "../utils/queries";
 import defaultPresets from "../utils/presets";
 import graphs from "../utils/graphs";
+import { periods } from "../utils/periods";
 
 const defaultQuery: Query = {
   period: "month",
@@ -15,27 +16,36 @@ export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
   const [orm, { handleFileSelect, reset }] = useOrm();
   const [info, setInfo] = useState({ loading: true, ready: false });
   const [query, setQuery] = useState(defaultQuery);
-  const [result, setResult] = useState({ loading: false, ready: false } as Result);
-  const [presets, setPresets] = useState({ selected: null, available: defaultPresets } as Presets);
+  const [result, setResult] = useState({
+    loading: false,
+    ready: false,
+  } as Result);
+  const [presets, setPresets] = useState({
+    selected: null,
+    available: defaultPresets,
+  } as Presets);
   const [_graph, _setGraph] = useState({ type: "line" });
 
-  // TODO move up to ORM
   useEffect(() => {
     if (orm.ready) {
-      (async () => {
-        setInfo({ ...(await getCollectionInfo()), ready: true, loading: false });
+      (async (): Promise<void> => {
+        setInfo({
+          ...(await getCollectionInfo()),
+          ready: true,
+          loading: false,
+        });
       })();
     }
   }, [orm.ready]);
 
-  function setGraph(data) {
-    usePreset(null);
+  function setGraph(data): void {
+    setPresets({ ...presets, selected: null });
     _setGraph(data);
   }
 
-  function updateQuery(update) {
+  function updateQuery(update): void {
     const { select, filter, period } = update;
-    usePreset(null);
+    setPresets({ ...presets, selected: null });
     setQuery({
       period: period || query.period,
       select: select || query.select,
@@ -43,7 +53,7 @@ export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
     });
   }
 
-  async function runQuery(q) {
+  async function runQuery(q): Promise<void> {
     setResult({ ...result, loading: true, ready: false });
     if (q) {
       setQuery(q);
@@ -53,21 +63,31 @@ export default function useQuery(): [QueryBuilderState, QueryBuilderActions] {
     const transformed = JSON.parse(JSON.stringify(original));
     // if decks, noteTypes or tags are filtered, add them to selection...
     ["decks", "noteTypes", "tags"].forEach((k) => {
-      if (original.select[k] && Object.values(original.filter[k] || {}).find((i) => i)) {
+      if (
+        original.select[k] &&
+        Object.values(original.filter[k] || {}).find((i) => i)
+      ) {
         transformed.select[k] = original.filter[k];
       }
     });
-    await tick(500); // force it to re-render before blocking thread
+    await tick(1000); // force it to re-render before blocking thread
     const data = await getRevisions({ query: transformed, info });
     const error = data.length === 0;
-    setResult({ loading: false, ready: true, error, data, query: transformed });
+    setResult({
+      loading: false,
+      ready: true,
+      error,
+      data,
+      query: transformed,
+      period: periods[original.period],
+    });
   }
 
-  async function usePreset(selected) {
+  async function usePreset(selected): Promise<void> {
     if (presets.available[selected]) {
       const { graph, query } = presets.available[selected].data;
-      setQuery(query);
       setGraph(graph);
+      runQuery(query);
     }
     setPresets({ ...presets, selected });
   }

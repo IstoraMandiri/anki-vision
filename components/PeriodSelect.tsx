@@ -13,7 +13,7 @@ const PeriodSelect = ({ period, onChange }) => {
             {items.map((i) => (
               <Menu.Item
                 key={i.id}
-                onClick={(e) => {
+                onClick={(e): void => {
                   onChange(e.key);
                 }}
               >

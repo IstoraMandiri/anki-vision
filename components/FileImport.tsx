@@ -2,7 +2,9 @@ import { useDropzone } from "react-dropzone";
 import { useCallback } from "react";
 
 const FileImport = ({ onChange }) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: onChange });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onChange,
+  });
 
   return (
     <div
@@ -18,7 +20,7 @@ const FileImport = ({ onChange }) => {
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drag and drop some files here, or click to select files</p>
       )}
     </div>
   );

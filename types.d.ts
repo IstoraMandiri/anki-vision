@@ -75,10 +75,22 @@ interface Query {
 }
 
 interface QueryBuilderActions extends OrmActions {
-  updateQuery: ({ type: string, field: string, id: string, value: any }) => void;
+  updateQuery: ({
+    type: string,
+    field: string,
+    id: string,
+    value: any,
+  }) => void;
   runQuery: (q: ?Query) => void;
   setGraph: (d: any) => void;
   usePreset: (d: any) => void;
+}
+
+interface Period {
+  name: string;
+  format: string;
+  time?: number;
+  margin?: number;
 }
 
 interface Result {
@@ -87,9 +99,14 @@ interface Result {
   error?: boolean;
   data: any[];
   query: Query;
+  period: Period;
 }
 
-interface Graph {}
+interface Graph {
+  name?: string;
+  type: string;
+  // TODO settings
+}
 
 interface Preset {
   name: string;
@@ -106,6 +123,13 @@ interface Presets {
   };
 }
 
+interface Data {
+  loading?: boolean;
+  ready?: boolean;
+  data?: any;
+  error?: string;
+}
+
 interface QueryBuilderState {
   query: Query;
   info: QueryBuilderInfo;
@@ -113,6 +137,6 @@ interface QueryBuilderState {
   orm: OrmState;
   presets: Presets;
   Comp: Component;
-  data: {};
+  data: any;
   graph: Graph;
 }
