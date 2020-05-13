@@ -8,7 +8,6 @@ import Revlog from "../schema/revlog";
 import Cards from "../schema/cards";
 import Col from "../schema/col";
 import Notes from "../schema/notes";
-import tick from "../utils/tick";
 
 export default function useOrm(): [OrmState, OrmActions] {
   const [state, setState] = useState({ ready: false, loading: true });

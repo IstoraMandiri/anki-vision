@@ -71,8 +71,14 @@ export function barTransform({ data }, info) {
 }
 
 export function calendarTransform({ data, query }) {
-  if (query.period !== "day" || Object.keys(data).length < 1) {
-    return null;
+  if (query.period !== "day") {
+    return { error: 'This graph must use the "Day" time period setting.' };
+  }
+  if (Object.keys(data[0]).length != 2) {
+    console.log(Object.keys(data));
+    return {
+      error: "This graph must only return one data series. Please limit your search to one item.",
+    };
   }
   const key = Object.keys(data[0])[1];
   const res = data.map((i) => ({ day: i.period, value: i[key] }));

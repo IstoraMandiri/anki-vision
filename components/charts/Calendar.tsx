@@ -4,6 +4,7 @@ const Calendar = ({ data: { data, first, last } }) => {
   if (!data) {
     return null;
   }
+  console.log("rendering the calendar");
   return (
     <ResponsiveCalendar
       data={data}

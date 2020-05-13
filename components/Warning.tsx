@@ -18,13 +18,13 @@ const words = [
   "ええと",
 ];
 
-const Warning = ({ text }) => {
+const Warning = ({ text, info = false }) => {
   return (
     <>
       <h1>
         <WarningTwoTone style={{ fontSize: "40px" }} />
         <br />
-        {words[Math.floor(Math.random() * words.length + 1)]}
+        {!info && words[Math.floor(Math.random() * (words.length + 1))]}
       </h1>
       <p>{text}</p>
     </>

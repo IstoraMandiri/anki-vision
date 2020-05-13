@@ -33,12 +33,7 @@ const Dashboard = () => {
               </Wrapper>
             );
           }
-          return (
-            <>
-              <GraphRenderer state={state} actions={actions} />
-              {/* <Json state={state} /> */}
-            </>
-          );
+          return <GraphRenderer state={state} actions={actions} />;
         })()}
       </Layout>
     </>
