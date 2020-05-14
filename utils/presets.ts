@@ -10,7 +10,7 @@ export default {
         },
       },
       graph: {
-        type: "bump",
+        type: "bar",
       },
     },
   },
