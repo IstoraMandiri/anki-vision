@@ -1,30 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# [Anki.Vision](https://anki.vision)
 
-First, run the development server:
+_In-depth data visualization for Anki flashcard collections_
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![Anki.Vision Screenshot](https://raw.githubusercontent.com/hitchcott/anki-vision/master/screenshot.png?token=AAM6JLVFQXAGKGXS5QB5HJK6XV2WI)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Instructions
 
-## Learn More
+First you'll need to find your Anki (v2) collection.
 
-To learn more about Next.js, take a look at the following resources:
+- Tools > Add-ons > Open add-ons folder (or "View Files")
+- Navigate a folder up (to the `Anki2` directory)
+- You should see a `/User 1/collection.anki2` file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Alternatively you can find it on your filesystem:
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+- **Windows** C:\Users\Administrator\AppData\Roaming\Anki2\User 1\collection.anki2
+- **Mac** /Users/USERNAME/Library/Application Support/Anki2/User 1/collection.anki2
 
-## Deploy on Vercel
+Once you've found this file you drag and drop this DB into [Anki.Vision](https://anki.vision).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The data from your collection will be stored locally in your browser until you clear your cache or hit the `Reset` button.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The current version of Anki.Vision has a few presets to demonstrate the different charts available.
+
+You can also customize a query:
+
+- **Graph Settings** Currently just lets your change which graph is shown. In future versions there will be unique customizations for each graph type
+- **Data** Select one or more data types to be shown on the graph;
+- **Date Range** Start and End Dates to limit your results (either be left empty)
+- **Time Period** Resolution of your results; Daily, Monthly, Yearly, etc. Be careful not to set too small or you might run out of WAM!
+- **Filters** You can include or exclude specific types from your results
+  - **Tags** (for tags, you can manually type out a fuzzy search)
+  - **Decks**
+  - **Note Types**
+
+## Roadmap
+
+- Card explorer and card specific stats to help identify tricky cards, etc.
+- More graph types
+- More graph config options
+- Dark Mode
+
+## Technical
+
+This project was partially motivated by the enjoyment of learning new technologies, the major libraries that helped create Anki.Vision are:
+
+- React
+- Next.js
+- Typescript
+- SQL.js
+- TypeORM
+- Nivo.rocks (it does)
+
+## Contribute
+
+Currently the codebase is very alpha and needs a bit of refactoring, but if you're ready to dive in feel free to contribute new graphs and stuff.
+
+## License
+
+MIT
