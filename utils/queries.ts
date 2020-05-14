@@ -79,8 +79,6 @@ export async function getRevisions({ query, info }) {
     ...r,
     period: new Date(r.period),
   }));
-  // console.log(res);
-  // transform period into JS
 
   return res;
 }

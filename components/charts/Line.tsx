@@ -1,15 +1,13 @@
 import * as core from "@nivo/core";
 import { ResponsiveLine } from "@nivo/line";
 import { TableTooltip } from "@nivo/tooltip";
-
-const { useValueFormatter } = core as any;
+import { formatDate } from "../../utils/format";
 
 const Line = (props) => {
   const {
     data,
     period: { format, tickValues, margin },
   } = props;
-  const formatValue = useValueFormatter(`time:${format}`);
   const ticks = 20;
   const tickVals = data[0].data.length < ticks ? tickValues : ticks;
   return (
@@ -19,6 +17,7 @@ const Line = (props) => {
       axisTop={null}
       axisRight={null}
       curve="linear"
+      colors={{ scheme: "spectral" }}
       enableGridX={false}
       enableGridY={false}
       animate={false}
@@ -42,7 +41,7 @@ const Line = (props) => {
       sliceTooltip={({ slice }) => {
         return (
           <TableTooltip
-            title={<b>{formatValue(slice.points[0].data.x)}</b>}
+            title={<b>{formatDate(format, slice.points[0].data.x)}</b>}
             rows={slice.points
               .filter((p) => p.data.y > 0)
               .sort((a, b) => (b.data.y as number) - (a.data.y as number))

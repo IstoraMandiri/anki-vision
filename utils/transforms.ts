@@ -1,3 +1,5 @@
+import { formatDate } from "./format";
+
 const i18n = {
   tags: "Tag: ",
   decks: "Deck: ",
@@ -11,8 +13,11 @@ export function objectify(arr, bool = true) {
   return arr.reduce((o, i) => ({ ...o, [i.key || i]: bool }), {});
 }
 
-export function formatTimes(data) {
-  return data.map();
+export function formatPeriod(data, format) {
+  return data.map((o) => ({
+    ...o,
+    period: formatDate(format, o.period),
+  }));
 }
 
 function mapNames(data, info) {
@@ -77,7 +82,7 @@ export function lineTransform({ data, query }, info) {
   return createSeries(named);
 }
 
-export function barTransform({ data }, info) {
+export function barTransform({ data, period }, info) {
   if (data.length <= 1) {
     return {
       error:
@@ -85,7 +90,7 @@ export function barTransform({ data }, info) {
     };
   }
 
-  const named = mapNames(data, info);
+  const named = formatPeriod(mapNames(data, info), period.format);
   const keys = Object.keys(named[0]).filter((k) => k !== "period");
   return { keys, data: named };
 }
@@ -117,11 +122,11 @@ export function pieTransform({ data, query }, info) {
   const [named] = mapNames(data, info);
   const keys = Object.keys(named).filter((k) => k !== "period");
   return keys
-    .reduce((a, k) => [...a, { id: k, value: named[k] }], [])
+    .reduce((a, k) => [...a, { id: k, label: k, value: named[k] }], [])
     .sort((a, b) => a.value - b.value);
 }
 
-export function bumpTransform({ data }, info) {
+export function bumpTransform({ data, period }, info) {
   if (data.length <= 1) {
     return {
       error:
@@ -129,7 +134,7 @@ export function bumpTransform({ data }, info) {
     };
   }
 
-  const named = mapNames(data, info);
+  const named = formatPeriod(mapNames(data, info), period.format);
   const series = createSeries(named);
   const ranked = rank(series);
   return ranked;

@@ -1,30 +1,35 @@
 import { ResponsiveBar } from "@nivo/bar";
 
-const Bar: React.FC<Data> = ({ data: { keys, data } }) => (
-  <>
+const Bar = (props) => {
+  const {
+    data: { keys, data },
+    period: { margin },
+  } = props;
+  const ticks = 20;
+  const t = data.length < ticks ? 1 : Math.ceil(data.length / ticks);
+  return (
     <ResponsiveBar
       data={data}
       keys={keys}
       indexBy="period"
-      margin={{ top: 10, right: 10, bottom: 100, left: 100 }}
+      margin={{ top: 10, right: 10, bottom: margin, left: 100 }}
       enableLabel={false}
+      colors={{ scheme: "spectral" }}
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        tickValues: data.map((d, i) => (i % 20 === 0 ? d.period : "")),
-        tickRotation: 90,
+        tickValues: data.filter((d, i) => i % t === 1).map((d) => d.period),
+        tickRotation: -45,
       }}
       axisLeft={{
-        tickSize: 5,
-        tickPadding: 5,
+        orient: "left",
         tickRotation: 0,
         legend: "Revisions",
+        legendOffset: -80,
         legendPosition: "middle",
-        legendOffset: -60,
       }}
       animate={false}
     />
-  </>
-);
-
+  );
+};
 export default Bar;

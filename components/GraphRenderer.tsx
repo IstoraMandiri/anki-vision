@@ -5,6 +5,7 @@ import GraphMenu from "./GraphMenu";
 import Graph from "./Graph";
 import Warning from "./Warning";
 import Json from "./Json";
+import CollectionInfo from "./CollectionInfo";
 
 interface Props {
   state: QueryBuilderState;
@@ -36,7 +37,12 @@ const GraphRenderer: React.FC<Props> = ({ state, actions }) => {
           <Comp data={data} graph={graph} period={period} />
         </Graph>
       )}
-      <Json data={data} />
+      {!loading && !error && !data && (
+        <Wrapper>
+          <CollectionInfo state={state} />
+        </Wrapper>
+      )}
+      {/* <Json data={data} graph={graph} period={period} /> */}
     </>
   );
 };

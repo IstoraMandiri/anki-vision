@@ -1,21 +1,36 @@
 export default {
-  pieAllTags: {
-    name: "Pie Chart: All Tags",
+  barAllDecks: {
+    name: "Deck Names - Bar",
     data: {
       query: {
-        period: "all",
+        period: "month",
         filter: {},
         select: {
-          tags: true,
+          decks: true,
         },
       },
       graph: {
-        type: "pie",
+        type: "bump",
+      },
+    },
+  },
+  bumpAllDecks: {
+    name: "Deck Names - Bump",
+    data: {
+      query: {
+        period: "month",
+        filter: {},
+        select: {
+          decks: true,
+        },
+      },
+      graph: {
+        type: "bump",
       },
     },
   },
   lineAllDecks: {
-    name: "Line Chart: All Decks",
+    name: "Deck Names - Line",
     data: {
       query: {
         period: "month",
@@ -29,8 +44,23 @@ export default {
       },
     },
   },
+  pieAllTags: {
+    name: "Tags - Pie",
+    data: {
+      query: {
+        period: "all",
+        filter: {},
+        select: {
+          tags: true,
+        },
+      },
+      graph: {
+        type: "pie",
+      },
+    },
+  },
   calendarTime: {
-    name: "Calendar: Time Taken",
+    name: "Time Taken - Heatmap",
     data: {
       query: {
         period: "day",

@@ -118,7 +118,6 @@ const BuildQuery = ({ state, actions, setShowMenu, showMenu }) => {
       >
         Run Query
       </Button>
-      {/* <Json presets={presets} /> */}
     </div>
   );
 };

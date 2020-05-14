@@ -10,6 +10,7 @@ const Json = (props) => {
         width: "100px",
         height: "100px",
         zIndex: 20,
+        userSelect: "all",
       }}
     >
       {JSON.stringify(props.children || props, null, 2)}
