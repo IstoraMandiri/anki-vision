@@ -1,6 +1,6 @@
 import Dexie from "dexie";
 
-const db = new Dexie("anki-stats-db") as any;
+const db = new Dexie("anki-vision") as any;
 
 db.version(1).stores({ data: "id" });
 

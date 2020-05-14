@@ -1,7 +1,9 @@
 const Welcome = ({ children }) => {
   return (
     <>
-      <h1>Welcome to Anki Insight</h1>
+      <h1>
+        Welcome to <a href="https://anki.vision">Anki.Vision</a>
+      </h1>
       <p>
         To get started, import a <code>collection.anki2</code> anki collection
         database file.
