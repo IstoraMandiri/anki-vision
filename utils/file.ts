@@ -10,7 +10,11 @@ export function loadFile(file) {
     const r = new FileReader() as any;
     r.onload = async () => {
       const buffer = new Uint8Array(r.result);
-      await db.data.put({ id: 1, buffer });
+      try {
+        await db.data.put({ id: 1, buffer });
+      } catch (e) {
+        console.log(e);
+      }
       resolve(buffer);
     };
     r.readAsArrayBuffer(f);
