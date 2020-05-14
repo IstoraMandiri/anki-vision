@@ -29,7 +29,7 @@ The current version of Anki.Vision has a few presets to demonstrate the differen
 
 You can also customize a query:
 
-- **Graph Settings** Currently just lets your change which graph is shown. In future versions there will be unique customizations for each graph type
+- **Graph Settings** Currently just lets your change which graph is shown. In future versions there will be unique customizations for each graph type. See [screenshots](#Screenshots) below for graph types
 - **Data** Select one or more data types to be shown on the graph;
 - **Date Range** Start and End Dates to limit your results (either be left empty)
 - **Time Period** Resolution of your results; Daily, Monthly, Yearly, etc. Be careful not to set too small or you might run out of WAM!
@@ -61,6 +61,10 @@ This project was partially motivated by the enjoyment of learning new technologi
 
 Currently the codebase is very alpha and needs a bit of refactoring, but if you're ready to dive in feel free to contribute new graphs and stuff.
 
-## License
+## Screenshots
 
-MIT
+![screenshot_pie.png](https://github.com/hitchcott/anki-vision/blob/master/screenshot_pie.png?raw=true)
+![screenshot_bar.png](https://github.com/hitchcott/anki-vision/blob/master/screenshot_bar.png?raw=true)
+![screenshot_calendar.png](https://github.com/hitchcott/anki-vision/blob/master/screenshot_calendar.png?raw=true)
+![screenshot_bump.png](https://github.com/hitchcott/anki-vision/blob/master/screenshot_bump.png?raw=true)
+![screenshot_bump_2.png](https://github.com/hitchcott/anki-vision/blob/master/screenshot_bump_2.png?raw=true)
