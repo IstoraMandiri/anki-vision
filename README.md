@@ -4,7 +4,7 @@
 
 _In-depth data visualization for Anki flashcard collections_
 
-![Anki.Vision Screenshot](https://raw.githubusercontent.com/hitchcott/anki-vision/master/screenshot.png?token=AAM6JLVFQXAGKGXS5QB5HJK6XV2WI)
+![Anki.Vision Screenshot](https://gihub.com/hitchcott/anki-vision/blob/master/screenshot.png)
 
 </div>
 
