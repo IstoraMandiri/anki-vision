@@ -40,6 +40,7 @@ You can also customize a query:
 
 ## Roadmap
 
+- Export Query Data
 - Card explorer and card specific stats to help identify tricky cards, etc.
 - More graph types
 - More graph config options
