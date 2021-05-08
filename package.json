@@ -23,7 +23,7 @@
     "react-dropzone": "^11.0.1",
     "reflect-metadata": "^0.1.13",
     "sql.js": "^1.2.2",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",
